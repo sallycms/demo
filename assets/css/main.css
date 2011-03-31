@@ -1,0 +1,98 @@
+div, body {
+	padding:0;
+	margin: 0;
+}
+
+body {
+	background: #f2f2f2;
+}
+
+#page {
+	margin: 0 auto;
+	width: 940px;
+}
+
+#header {
+	+clearfix;
+	margin: 10px 0;
+	height: 150px;
+}
+
+#logo {
+	float: left;
+	width: 200px;
+}
+
+#keyvisual {
+	float: right;
+	width: 720px;
+	padding:5px;
+	height: 140px;
+	background-color: #fff;
+	+border-radius(5px);
+}
+
+#nav {
+	width: 200px;
+	float: left;
+	
+	ul{
+		margin: 0;
+		padding: 0;
+		> li.num0 a {
+			line-height: 32px;
+			height: 32px;
+		}
+	}
+	a {
+		+border-radius(3px);
+		padding: 0 0 0 10px;
+		display: block;
+		height: 27px;
+		line-height: 27px;
+		background: #fff;
+	}
+	
+	li {
+		margin: 0 0 1px 0;
+		list-style: none;
+		font-size: 14px;
+		padding: 0;
+		
+		li a {
+			padding: 0 0 0 25px;
+		}
+	}
+	a:hover {
+		color: #fff;
+		background: #999;
+		text-decoration: none;
+	}
+	li.active > a {
+		color: #fff;
+		background: #333;
+	}
+}
+
+#article {
+	width: 730px;
+	float: right;
+	min-height: 500px;
+	background: #fff;
+	+border-radius(5px);
+}
+
+#content {
+	margin: 0 20px;
+}
+
+#footer {
+	padding-left: 220px;
+	padding-top: 20px;
+	clear: both;
+	
+	a {
+		margin-right: 20px;
+	}
+}
+

@@ -1,0 +1,4 @@
+ARTICLE_TYPES:
+  standard:
+    title: Standard
+    template: standard
