@@ -17,4 +17,8 @@ unset($editor);
 <div>
 	<label style="width:100%;">Fließtext:</label>
 	<textarea name="VALUE[1]" class="wymeditor" cols="80" rows="10"><?php echo sly_html($html) ?></textarea>
+	
+	REX_LINKLIST_BUTTON[test]
+	REX_LINKLIST_BUTTON[test3]
+	REX_LINK_BUTTON[test2]
 </div>
