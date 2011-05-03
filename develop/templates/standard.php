@@ -14,9 +14,9 @@ FrontendHelper::printHeader();
 		<div id="keyvisual">
 		</div>
 	</div>
-	<div id="nav"><? echo FrontendHelper::getNavigation() ?></div>
+	<div id="nav"><?= FrontendHelper::getNavigation() ?></div>
 	<div id="article">
-		<h1><?= $article->getName() ?></h1>
+		<h1><?= sly_html($article->getName()) ?></h1>
 		<div id="content">
 			<?= $article->getContent() ?>
 		</div>
@@ -28,4 +28,3 @@ FrontendHelper::printHeader();
 </div>
 <?php
 FrontendHelper::printFooter();
-
