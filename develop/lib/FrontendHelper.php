@@ -40,7 +40,7 @@ class FrontendHelper {
 		// $layout->setBodyAttr('class', 'test');
 
 		// favicon
-		$layout->setFavIcon('facicon.ico');
+		$layout->setFavIcon('favicon.ico');
 
 		// Title
 		$pathString = self::getNavigation()->getBreadcrumbs();
