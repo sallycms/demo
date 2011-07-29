@@ -1,4 +1,4 @@
 ARTICLE_TYPES:
-  standard:
-    title: Standard
+  default:
+    title: Standardseite
     template: standard

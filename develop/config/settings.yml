@@ -1,0 +1,21 @@
+global_settings:
+  company:
+    title: Firmenname
+    datatype: stringline
+    pagename: Einstellungen
+    group: Allgemein
+  imprint:
+    title: Impressum
+    pagename: Einstellungen
+    datatype: linkbutton
+    group: Footerlinks
+  about:
+    title: Über Sally
+    pagename: Einstellungen
+    datatype: linkbutton
+    group: Footerlinks
+  contact:
+    title: Kontakt
+    pagename: Einstellungen
+    datatype: linkbutton
+    group: Footerlinks

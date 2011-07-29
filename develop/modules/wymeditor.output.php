@@ -5,13 +5,21 @@
  */
 
 $html = <<<WEBVARIANTS_TEXT
-REX_HTML_VALUE[1]
+SLY_HTML_VALUE[text]
 WEBVARIANTS_TEXT;
 if (!is_string($html)) $html = '';
 
 if ($html) {
-	$html = A2_Thumbnail::scaleMediaImagesInHtml($html);
-	$html = WV14_WYMEditor::fixMediaInBackend($html);
+	$service = sly_Service_Factory::getAddOnService();
 
+	if ($service->isAvailable('image_resize')) {
+		$html = A2_Thumbnail::scaleMediaImagesInHtml($html, 200);
+	}
+
+	if ($service->isAvailable('developer_utils')) {
+		$html = WV_Mail::protectEmailInHtml($html);
+	}
+
+	$html = WV14_WYMEditor::fixMediaInBackend($html);
 	printf('<div class="wymeditor">%s</div>', $html);
 }

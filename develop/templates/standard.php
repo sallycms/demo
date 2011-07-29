@@ -1,30 +1,34 @@
 <?php
 /**
- * @sly  name    standard
- * @sly  title   Standard
- * @sly  active  true
+ * @sly name  standard
+ * @sly title Standardseite
+ * @sly slots {main: Hauptbereich}
  */
 
 FrontendHelper::printHeader();
 ?>
+<div id="wrapper"></div>
+<div id="logo"><a href="<?= FrontendHelper::getMainArticleURL() ?>" name="logo"><img src="assets/images/logo.png" alt="<?= sly_html(FrontendHelper::getSetting('company')) ?>" /></a></div>
 <div id="page">
 	<div id="header">
-		<div id="logo">
-		</div>
-		<div id="keyvisual">
-		</div>
-	</div>
-	<div id="nav"><?= FrontendHelper::getNavigation() ?></div>
-	<div id="article">
-		<h1><?= sly_html($article->getName()) ?></h1>
-		<div id="content">
-			<?= $article->getContent() ?>
+		<div id="prenavi">
+			<p>Das Sally CMS - <br /> gut bedienbare und professionelle Webseiten</p>
+			<ul>
+				<li><a href="<?= FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
+				<li><a href="<?= FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
+				<li><a href="<?= FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
+			</ul>
 		</div>
 	</div>
+	<div id="navigation"><?= FrontendHelper::getNavigationHTML() ?></div>
+	<div id="content"><?= $article->getArticle('main') ?></div>
 	<div id="footer">
-		&copy; <a href="http://www.webvariants.de">webvariants</a>
-		<a href="http://www.sallycms.de">www.sallycms.de</a>
+		<ul>
+			<li><a href="<?= sly_Core::getCurrentArticle()->getUrl() ?>#logo">Nach Oben</a></li>
+			<li><a href="<?= FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
+			<li><a href="<?= FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
+			<li><a href="<?= FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
+		</ul>
 	</div>
 </div>
-<?php
-FrontendHelper::printFooter();
+<? FrontendHelper::printFooter() ?>

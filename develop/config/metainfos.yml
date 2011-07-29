@@ -1,0 +1,9 @@
+metainfo:
+  articles:
+    page:
+      title: alternativer Seitentitel
+      datatype: stringline
+      params:
+        maxlength: 50
+      metapage: false
+      types: [default]

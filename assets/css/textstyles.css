@@ -1,42 +1,306 @@
-body {
-	font-family:  "Trebuchet MS", Tahoma, Arial, sans-serif;
-	line-height: 17px;
-	font-size: 12px;
-	color: #222;
-}
-a {
-	text-decoration: none;
-	color: #222;
-}
+@CHARSET "UTF-8";
 
-a:hover {
-	text-decoration: underline;
-}
+/*===== Basic Styling (Vertical Rhythm) =====*/
 
-h1,h2,h3,h4,h5,h6 {
-	font-weight: bold;
-	margin: 0 0 15px 0;
-	+border-radius(5px 5px 0 0);
+h1, h2, h3, h4, h5, h6 {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	margin-bottom: 22px;
+	color: #4D4646;
+	position: relative;
+	float: left;
+	width:100%;
+	padding-left: 6px;
 }
 
 h1 {
-	font-size: 24px;
-	line-height: 32px;
-	padding: 0 20px;
-	color: #fff;
-	background: #222;
+	font-size: 33px;
+	font-weight: normal;
+	word-spacing: 13px;
 }
 
 h2 {
-	font-size: 18px;
+	font-size: 17px;
 	line-height: 24px;
+	display: block;
+	word-spacing: 4px;
+	font-weight: bold;
+	margin-bottom: 136px;
 }
 
 h3 {
-	font-size: 14px;
-	line-height:20px;
+	font-size: 21px;
+	line-height: 20px;
+	margin-bottom: 0;
+	word-spacing: 4px;
 }
 
-p {
-	margin-bottom: 10px;
+h4 {
+	font-size: 14px;
+	line-height: 20px;
 }
+
+h5,h6 {
+	font-size: 16px;
+	line-height: 20px;
+	padding: 8px 45px;
+	background-color: #4D4646;
+	border-radius: 4px 4px 0px 0px;
+	color: #FFFFFF;
+	font-weight: bold;
+	width: 646px;
+	margin: 0;
+	
+	
+}
+
+#content
+{
+	p, ul, ol, dl, img, blockquote
+	{
+		line-height: 15px;
+		margin: 0px 0px 10px 0px;
+		position: relative;
+		float: left;
+	}
+
+	p+h1, ul+h1, ol+h1, dl+h1, img+h1, blockquote+h1, table+h1
+	{
+		margin-top: 40px;
+	}
+
+	p+h2, ul+h2, ol+h2, dl+h2, img+h2, blockquote+h2, table+h2
+	{
+		margin-top: 30px;
+	}
+
+	p+h3, ul+h3, ol+h3, dl+h3, img+h3, blockquote+h3, table+h3
+	{
+		margin-top: 20px;
+	}
+
+	p+h4, ul+h4, ol+h4, dl+h4, img+h4, blockquote+h4, table+h4
+	{
+		margin-top: 20px;
+	}
+
+	p+img { margin-top: 10px; }
+
+	p+dl.image { margin-top: 20px; }
+
+
+	/*===== Text Styling =====*/
+
+	small {
+		font-size: 80%;
+	}
+
+	big {
+		font-size: 130%;
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	sup {
+		font-size: 10px;
+		vertical-align: super;
+	}
+
+	sub {
+		font-size: 10px;
+		vertical-align: sub;
+	}
+
+
+	/*===== Images =====*/
+
+	img {
+		border-width: 0px;
+	}
+
+
+	dl.image {
+		background-color: #eee;
+		}
+
+	dl.image dt, dl.image img {
+		margin: 0px;
+		padding: 0px;
+		}
+
+	dl.image dt {
+		float: none;
+		}
+
+	dl.image dd {
+		margin: 0px;
+		padding: 0px 5px 5px;
+		line-height: 20px;
+		font-size: 12px;
+		}
+
+	dl.left dd, dl.right dt {
+	/*	padding-top: 5px;*/
+	}
+
+
+	/*===== Tables =====*/
+
+	table {
+		margin: 20px 0px;
+		font-size: 12px;
+		text-align: left;
+		}
+
+	caption {
+		font-size: 14px;
+		line-height: 20px;
+		text-transform: uppercase;
+		text-align: left;
+		margin-bottom: 10px;
+	}
+
+	td, th {
+		padding: 0px 10px 0px 0px;
+		}
+
+	td {
+		line-height: 19px;
+		background-color: #eee;
+		border-bottom: 1px solid #ccc;
+		}
+
+	th {
+		line-height: 18px;
+		background-color: #ddd;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		}
+
+		/*===== Lists =====*/
+
+	li {
+		line-height: 22px;
+	}
+
+	ul li {
+		margin-left: 15px;
+	}
+
+	ol li {
+		margin-left: 20px;
+	}
+
+	ul li {
+		list-style-type: square;
+		display: inline;
+		width: 80px;
+		position: relative;
+		float: left;
+	}
+
+	ul li li {
+		list-style-type: disc;
+	}
+
+	ul li li li, ul li li li li {
+		list-style-type: circle;
+	}
+
+	ul ul{
+		margin-bottom: 0px;
+	}
+
+	ol li {
+		list-style-type: decimal;
+	}
+
+	ol li li {
+		list-style-type: lower-alpha;
+	}
+
+	ol li li li, ol li li li li {
+		list-style-type: lower-roman;
+	}
+
+	ol ol {
+		margin-bottom: 0px;
+	}
+
+	dt {
+		float: left;
+		width: 120px;
+	}
+
+	dd {
+		margin-left: 125px;
+	}
+
+	a
+	{
+		text-decoration: none;
+	}
+	ul {
+		display: inline;
+		width: 100px;
+	}
+}
+
+/*===== Links =====*/
+
+a
+{
+	text-decoration: none;
+	color: #787373;
+
+
+	&:hover { 
+		text-decoration: none;
+		color: #88c7d3;
+	}
+
+	&:active{ color: #88c7d3; }
+}
+
+/*===== Text Styling =====*/
+small { font-size: 80%; }
+
+big { font-size: 130%; }
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+sup {
+	font-size: 10px;
+	vertical-align: super;
+}
+
+sub {
+	font-size: 10px;
+	vertical-align: sub;
+}
+
+/*===== Images =====*/
+img { border-width: 0px; }
+
+img.left {
+	padding-right: 5px;
+}
+
+img.right {
+	padding-left: 5px;
+}
+
+
+/*===== Insertions =====*/
+
+.left { float: left; }
+
+.right { float: right; }
