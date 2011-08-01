@@ -15,10 +15,10 @@ RewriteEngine On
 RewriteRule ^backend/$         sally/backend/ [L,QSA]
 RewriteRule ^backend/(.*)$     sally/backend/$1 [L,QSA]
 
-# Image Resize >= 2.0
+# Image Resize
 RewriteRule ^imageresize/(.+)$ sally/data/mediapool/$1 [L]
 
-# Deployer >= 3.2
+# Deployer
 RewriteRule ^assets/([^/]+)/deployer\.([a-f0-9]+)\.min\.(css|js)$ sally/data/dyn/public/deployer/compressed_$2.$1 [L]
 
 # Assets Cache
@@ -26,7 +26,7 @@ RewriteCond %{REQUEST_FILENAME}  \.(css|js|gif|jpg|jpeg|png|swf|ico|pdf)$
 RewriteCond %{REQUEST_URI}       !wym_styles.css$
 RewriteRule ^(.*)$               sally/data/dyn/public/sally/static-cache/$1 [L]
 
-# realURL 2
+# realURL2
 RewriteRule ^sally$      - [L]
 RewriteRule ^sally/.*$   - [L]
 

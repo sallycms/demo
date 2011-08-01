@@ -1,30 +1,43 @@
 <?php
 /**
  * @sly name  standard
- * @sly title Standardseite
  * @sly slots {main: Hauptbereich}
  */
 
 FrontendHelper::printHeader();
 ?>
-<div id="wrapper"></div>
-<div id="logo"><a href="<?= FrontendHelper::getMainArticleURL() ?>" name="logo"><img src="assets/images/logo.png" alt="<?= sly_html(FrontendHelper::getSetting('company')) ?>" /></a></div>
 <div id="page">
-	<div id="header">
-		<div id="prenavi">
-			<p>Das Sally CMS - <br /> gut bedienbare und professionelle Webseiten</p>
+	<div id="container">
+
+		<div id="topline">
+			<p>Das Sally CMS &ndash; gut bedienbare und professionelle Webseiten</p>
 			<ul>
 				<li><a href="<?= FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
 				<li><a href="<?= FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
 				<li><a href="<?= FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
 			</ul>
 		</div>
+
+		<div id="header">
+			<a href="<?= FrontendHelper::getMainArticleURL() ?>" id="logo">
+				<img src="assets/images/logo.png" alt="<?= sly_html(sly_Core::getProjectName()) ?>" />
+			</a>
+
+			<div id="claim">
+				<h1>Was immer Sie über Sally wissen mögen ...</h1>
+				<span>... können wir in einigen Sätzen erklären. Oder Bildern.</span>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="navigation"><?= FrontendHelper::getNavigationHTML() ?></div>
+			<div id="content"><?= $article->getArticle('main') ?></div>
+		</div>
 	</div>
-	<div id="navigation"><?= FrontendHelper::getNavigationHTML() ?></div>
-	<div id="content"><?= $article->getArticle('main') ?></div>
+
 	<div id="footer">
 		<ul>
-			<li><a href="<?= sly_Core::getCurrentArticle()->getUrl() ?>#logo">Nach Oben</a></li>
+			<li><a href="<?= sly_Core::getCurrentArticle()->getUrl() ?>#">nach oben</a></li>
 			<li><a href="<?= FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
 			<li><a href="<?= FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
 			<li><a href="<?= FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
