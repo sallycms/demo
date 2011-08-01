@@ -1,9 +1,4 @@
 global_settings:
-  company:
-    title: Firmenname
-    datatype: stringline
-    pagename: Einstellungen
-    group: Allgemein
   imprint:
     title: Impressum
     pagename: Einstellungen
