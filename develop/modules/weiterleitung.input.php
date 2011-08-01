@@ -2,44 +2,31 @@
 /**
  * Weiterleitungsmodul
  *
- * Dieses Modul vereint sowohl interne als auch externe Weiterleitungen in einem.
- * Je nach Kunde kann jedoch die verfügbare Weiterleitungsart eingeschränkt
- * werden, indem in beiden Modulteilen (!) die Variable $mode auf
+ * Dieses Modul demonstriert, dass innerhalb von Modulen auch problemlos
+ * sly_Form verwendet werden kann, um einen einheitlichen Look der Formulare zu
+ * erhalten.
  *
- *  - external für nur externe Weiterleitungen,
- *  - internal für nur interne Weiterleitungen oder
- *  - both für beide (interne priorisiert)
- *
- * gesetzt wird.
- *
- * @author   Christoph
- * @version  2.0 vom 17.04.09
- * @required true
- *
- * @sly  name   redirect
- * @sly  title  Weiterleitung
+ * @sly name  redirect
+ * @sly title Weiterleitung
  */
-
-$mode = 'internal';
-$url  = 'REX_VALUE[1]' ? 'REX_VALUE[1]' : 'http://';
-
 ?>
-<div class="wvModule">
-	<? if ($mode == 'both'): ?>
-		<label>Beschreibung</label>
-		Bitte wählen Sie entweder einen Artikel aus Ihrer Webseite aus oder geben Sie eine
-		Ziel-URL ein. Wenn Sie beides eingeben, wird der Artikel bevorzugt.
-	<? endif ?>
+<p style="margin-bottom:10px">Bitte wählen Sie entweder einen Artikel aus Ihrer
+Webseite aus oder geben Sie eine Ziel-URL ein. Wenn Sie beides eingeben, wird
+der Artikel bevorzugt.</p>
+<?
 
-	<? if ($mode != 'external'): ?>
-		<label>Interne Weiterleitung (Zielartikel)</label>
-		<span class="help">Zu diesem Artikel wird beim Aufruf dieses Artikels weitergeleitet.</span>
-		REX_LINK_BUTTON[1]
-	<? endif ?>
+$url = 'SLY_VALUE[url]' ? 'SLY_VALUE[url]' : 'http://';
 
-	<? if ($mode != 'internal'): ?>
-		<label>Externe Weiterleitung (URL)</label>
-		<span class="help">Bitte geben Sie die volle URL (mit "http://") ein.</span>
-		<input type="text" size="60" name="VALUE[1]" value="<?= sly_html($url) ?>" />
-	<? endif ?>
-</div>
+// Die Werte sind irrelevant, da kein <form>-Tag erzeugt wird.
+$form = new sly_Form('index.php', 'POST', '');
+
+// Die Buttons des Formulars müssen entfernt werden.
+$form->setSubmitButton(null);
+$form->setResetButton(null);
+
+// Jetzt können die eigenen Elemente zum Formular hinzugefügt werden.
+$form->add(new sly_Form_Widget_Link('SLY_'.'LINK[article]', 'Zielartikel', 'SLY_LINK[article]'));
+$form->add(new sly_Form_Input_Text('VALUE[url]', 'URL', $url));
+
+// Das Formular muss ohne <form>-Tag gerendert werden.
+print $form->render(true);

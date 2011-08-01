@@ -1,35 +1,27 @@
 <?php
 /**
- * @sly  name   2column
- * @sly  title  2-Spalten-Content
+ * @sly name  2column
+ * @sly title 2-spaltiger Texteditor
  */
 
-$html = <<<WEBVARIANTS_TEXT
-REX_HTML_VALUE[1]
-WEBVARIANTS_TEXT;
-if (!is_string($html)) $html = '';
+$htmlLeft = <<<SALLYCMS_WYMEDITOR_TEXT
+SLY_HTML_VALUE[left]
+SALLYCMS_WYMEDITOR_TEXT;
+
+$htmlRight = <<<SALLYCMS_WYMEDITOR_TEXT
+SLY_HTML_VALUE[right]
+SALLYCMS_WYMEDITOR_TEXT;
 
 $editor = WV14_WYMEditor::getSimpleEditor();
 $editor->embed();
-unset($editor);
+
 ?>
-<div class="wvModule">
-	REX_MEDIA_BUTTON[1]
-	<textarea name="VALUE[1]" class="wymeditor" cols="80" rows="10"><?= htmlspecialchars($html, ENT_QUOTES, 'UTF-8') ?></textarea>
-</div>
-<?php 
+<h1 style="font-size:18px;font-weight:bold;margin:1em 0">Linke Spalte</h1>
 
+SLY_MEDIA_WIDGET[left]
+<textarea name="VALUE[left]" class="wymeditor" cols="80" rows="10"><?= sly_html($htmlLeft) ?></textarea>
 
-$html2 = <<<WEBVARIANTS_TEXT
-REX_HTML_VALUE[2]
-WEBVARIANTS_TEXT;
-if (!is_string($html2)) $html2 = '';
+<h1 style="font-size:18px;font-weight:bold;margin:1em 0">Rechte Spalte</h1>
 
-$editor2 = WV14_WYMEditor::getSimpleEditor();
-$editor2->embed();
-unset($editor2);
-?>
-<div class="wvModule">
-	REX_MEDIA_BUTTON[2]
-	<textarea name="VALUE[2]" class="wymeditor" cols="80" rows="10"><?= htmlspecialchars($html2, ENT_QUOTES, 'UTF-8') ?></textarea>
-</div>
+SLY_MEDIA_WIDGET[right]
+<textarea name="VALUE[right]" class="wymeditor" cols="80" rows="10"><?= sly_html($htmlRight) ?></textarea>

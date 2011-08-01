@@ -1,25 +1,14 @@
 <?php
 /**
- * @sly  name   wymeditor
- * @sly  title  Texteditor
+ * @sly name  wymeditor
+ * @sly title Texteditor
  */
 
-$html = <<<WEBVARIANTS_TEXT
+$html = <<<SALLYCMS_WYMEDITOR_TEXT
 SLY_HTML_VALUE[text]
-WEBVARIANTS_TEXT;
-if (!is_string($html)) $html = '';
+SALLYCMS_WYMEDITOR_TEXT;
 
 if ($html) {
-	$service = sly_Service_Factory::getAddOnService();
-
-	if ($service->isAvailable('image_resize')) {
-		$html = A2_Thumbnail::scaleMediaImagesInHtml($html, 200);
-	}
-
-	if ($service->isAvailable('developer_utils')) {
-		$html = WV_Mail::protectEmailInHtml($html);
-	}
-
-	$html = WV14_WYMEditor::fixMediaInBackend($html);
+	$html = FrontendHelper::processWymeditor($html);
 	printf('<div class="wymeditor">%s</div>', $html);
 }
