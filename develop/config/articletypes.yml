@@ -2,3 +2,6 @@ ARTICLE_TYPES:
   default:
     title: Standardseite
     template: standard
+  twocolumn:
+    title: Zweispaltige Seite
+    template: twocolumn

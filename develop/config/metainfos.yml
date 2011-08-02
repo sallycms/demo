@@ -6,4 +6,4 @@ metainfo:
       params:
         maxlength: 50
       metapage: false
-      types: [default]
+      types: [default, twocolumn]

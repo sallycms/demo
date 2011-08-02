@@ -25,7 +25,7 @@ $form->setSubmitButton(null);
 $form->setResetButton(null);
 
 // Jetzt können die eigenen Elemente zum Formular hinzugefügt werden.
-$form->add(new sly_Form_Widget_Link('SLY_'.'LINK[article]', 'Zielartikel', 'SLY_LINK[article]'));
+$form->add(new sly_Form_Widget_Link('LINK[article]', 'Zielartikel', 'SLY_LINK[article]'));
 $form->add(new sly_Form_Input_Text('VALUE[url]', 'URL', $url));
 
 // Das Formular muss ohne <form>-Tag gerendert werden.

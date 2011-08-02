@@ -57,4 +57,14 @@ class sly_Layout_Frontend extends sly_Layout_XHTML {
 			WV5_Deployment::setJSCompressionMode(WV5_Deployer_JavaScript::COMPRESSION_GOOGLE);
 		}
 	}
+	
+	public function printHeader() {
+		parent::printHeader();
+		sly_Service_Factory::getTemplateService()->includeFile('top');
+	}
+	
+	public function printFooter() {
+		sly_Service_Factory::getTemplateService()->includeFile('bottom');
+		parent::printFooter();
+	}
 }
