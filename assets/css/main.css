@@ -191,6 +191,11 @@ body {
 	div.left {
 		margin-right: 30px;
 	}
+
+	p:first-letter {
+		padding-left: 12px;
+		background: url(../images/bullet_square.png) left 4px no-repeat;
+	}
 }
 
 #footer {
