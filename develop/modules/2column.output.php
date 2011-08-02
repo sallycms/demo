@@ -19,14 +19,14 @@ $htmlRight = FrontendHelper::processWymeditor($htmlRight);
 <div class="twocolumn">
 	<div class="left">
 		<? if ('SLY_MEDIA[left]'): ?>
-		<div class="image"><img src="imageresize/340w__181h__SLY_MEDIA[left]" alt="" /></div>
+		<div class="image"><img src="imageresize/310w__181h__SLY_MEDIA[left]" alt="" /></div>
 		<? endif ?>
 		<?= $htmlLeft ?>
 	</div>
 
 	<div class="right">
 		<? if ('SLY_MEDIA[right]'): ?>
-		<div class="image"><img src="imageresize/340w__181h__SLY_MEDIA[right]" alt="" /></div>
+		<div class="image"><img src="imageresize/310w__181h__SLY_MEDIA[right]" alt="" /></div>
 		<? endif ?>
 		<?= $htmlRight ?>
 	</div>
