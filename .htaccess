@@ -12,7 +12,7 @@ RewriteEngine On
 # RewriteCond %{HTTP_HOST} ^example\.de$
 # RewriteRule ^(.*)$ http://www.example.de/$1 [R=301,L]
 
-RewriteRule ^backend/$         sally/backend/ [L,QSA]
+RewriteRule ^backend/?$        sally/backend/ [L,QSA]
 RewriteRule ^backend/(.*)$     sally/backend/$1 [L,QSA]
 
 # Image Resize
@@ -27,10 +27,10 @@ RewriteCond %{REQUEST_URI}       !wym_styles.css$
 RewriteRule ^(.*)$               sally/data/dyn/public/sally/static-cache/$1 [L]
 
 # realURL2
-RewriteRule ^sally$      - [L]
-RewriteRule ^sally/.*$   - [L]
-
 RewriteCond %{REQUEST_FILENAME}  !-f
 RewriteCond %{REQUEST_FILENAME}  !-d
 RewriteCond %{REQUEST_FILENAME}  !-l
-RewriteRule .*                   index.php [L]
+RewriteCond %{REQUEST_URI}       !assets/.*
+RewriteCond %{REQUEST_URI}       !data/.*       # Sally <= 0.4 (just in case)
+RewriteCond %{REQUEST_URI}       !sally/.*
+RewriteRule .*                   index.php

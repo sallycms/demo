@@ -4,9 +4,9 @@
  * @sly title Texteditor
  */
 
-$html = <<<SALLYCMS_WYMEDITOR_TEXT
-SLY_HTML_VALUE[text]
-SALLYCMS_WYMEDITOR_TEXT;
+ob_start();
+?>SLY_HTML_VALUE[text]<?
+$html = ob_get_clean();
 
 if ($html) {
 	$html = FrontendHelper::processWymeditor($html);

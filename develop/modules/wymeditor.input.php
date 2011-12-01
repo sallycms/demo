@@ -4,9 +4,9 @@
  * @sly title Texteditor
  */
 
-$html = <<<WEBVARIANTS_TEXT
-SLY_HTML_VALUE[text]
-WEBVARIANTS_TEXT;
+ob_start();
+?>SLY_HTML_VALUE[text]<?
+$html = ob_get_clean();
 
 $editor = WV14_WYMEditor::getSimpleEditor();
 $editor->embed();

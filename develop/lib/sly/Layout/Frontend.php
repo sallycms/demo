@@ -1,6 +1,6 @@
 <?php
 
-class sly_Layout_Frontend extends sly_Layout_XHTML {
+class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 	protected $article = null;
 
 	public function __construct() {
@@ -23,16 +23,12 @@ class sly_Layout_Frontend extends sly_Layout_XHTML {
 		$this->addMeta('robots', 'index, follow, noodp');
 		$this->addMeta('language', 'de_DE');
 
-		$this->addHttpMeta('Content-Type', 'text/html; charset=UTF-8');
-		$this->addHttpMeta('Content-Language', 'de');
-
-		// Content-Type auch als HTTP-Header senden
+		// Content-Type
 		header('Content-Type: text/html; charset=UTF-8');
 
 		//////////////////////////////////////////////////////////////////
 		// CSS
 
-		$this->addCSSFile('assets/css/reset.css');
 		$this->addCSSFile('assets/css/textstyles.css');
 		$this->addCSSFile('assets/css/main.css');
 
@@ -57,12 +53,12 @@ class sly_Layout_Frontend extends sly_Layout_XHTML {
 			WV5_Deployment::setJSCompressionMode(WV5_Deployer_JavaScript::COMPRESSION_GOOGLE);
 		}
 	}
-	
+
 	public function printHeader() {
 		parent::printHeader();
 		sly_Service_Factory::getTemplateService()->includeFile('top');
 	}
-	
+
 	public function printFooter() {
 		sly_Service_Factory::getTemplateService()->includeFile('bottom');
 		parent::printFooter();

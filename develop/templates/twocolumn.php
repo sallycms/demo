@@ -10,4 +10,4 @@ FrontendHelper::printHeader();
 	<div class="left"><?= $article->getArticle('left') ?></div>
 	<div class="right"><?= $article->getArticle('right') ?></div>
 </div>
-<? FrontendHelper::printFooter() ?>
+<?php FrontendHelper::printFooter(); ?>
