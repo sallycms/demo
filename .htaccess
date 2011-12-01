@@ -30,7 +30,7 @@ RewriteRule ^(.*)$               sally/data/dyn/public/sally/static-cache/$1 [L]
 RewriteCond %{REQUEST_FILENAME}  !-f
 RewriteCond %{REQUEST_FILENAME}  !-d
 RewriteCond %{REQUEST_FILENAME}  !-l
-RewriteCond %{REQUEST_URI}       !assets/.*
-RewriteCond %{REQUEST_URI}       !data/.*
-RewriteCond %{REQUEST_URI}       !sally/.*
+RewriteCond %{REQUEST_URI}       !^assets/.*
+RewriteCond %{REQUEST_URI}       !^data/.*
+RewriteCond %{REQUEST_URI}       !^sally/.*
 RewriteRule .*                   index.php
