@@ -1,7 +1,16 @@
 <?php
+/*
+ * Copyright (c) 2012, webvariants GbR, http://www.webvariants.de
+ *
+ * This file is released under the terms of the MIT license. You can find the
+ * complete text in the attached LICENSE file or online at:
+ *
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 
 class FrontendHelper {
-    static $navigation;
+	private static $navigation;
+	private static $layout;
 
 	/**
 	 * returns a sly_Util_Navigation instance
@@ -16,7 +25,12 @@ class FrontendHelper {
 	}
 
 	public static function getLayout() {
-		return sly_Core::getLayout('Frontend');
+		if (!isset(self::$layout)) {
+			self::$layout = new sly_Layout_Frontend();
+			sly_Core::setLayout(self::$layout);
+		}
+
+		return self::$layout;
 	}
 
 	public static function printHeader() {
@@ -60,7 +74,9 @@ class FrontendHelper {
 			$text = WV_Mail::protectEmailInHtml($text);
 		}
 
-		$text = WV14_WYMEditor::fixMediaInBackend($text);
+		if ($service->isAvailable('wymeditor')) {
+			$text = WV14_WYMEditor::fixMediaInBackend($text);
+		}
 
 		return $text;
 	}

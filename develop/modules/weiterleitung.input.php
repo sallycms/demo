@@ -10,23 +10,14 @@
  * @sly title Weiterleitung
  */
 ?>
-<p style="margin-bottom:10px">Bitte wählen Sie entweder einen Artikel aus Ihrer
+<p style="margin:5px 0 10px 0">Bitte wählen Sie entweder einen Artikel aus Ihrer
 Webseite aus oder geben Sie eine Ziel-URL ein. Wenn Sie beides eingeben, wird
 der Artikel bevorzugt.</p>
-<?
+<?php
 
-$url = 'SLY_VALUE[url]' ? 'SLY_VALUE[url]' : 'http://';
-
-// Die Werte sind irrelevant, da kein <form>-Tag erzeugt wird.
-$form = new sly_Form('index.php', 'POST', '');
-
-// Die Buttons des Formulars müssen entfernt werden.
-$form->setSubmitButton(null);
-$form->setResetButton(null);
+$url = $values->get('url');
+$url = $url ? $url : 'http://';
 
 // Jetzt können die eigenen Elemente zum Formular hinzugefügt werden.
-$form->add(new sly_Form_Widget_Link('LINK[article]', 'Zielartikel', 'SLY_LINK[article]'));
-$form->add(new sly_Form_Input_Text('VALUE[url]', 'URL', $url));
-
-// Das Formular muss ohne <form>-Tag gerendert werden.
-print $form->render(true);
+$form->add(new sly_Form_Widget_Link('article', 'Zielartikel', $values->get('article')));
+$form->add(new sly_Form_Input_Text('url', 'URL', $url));

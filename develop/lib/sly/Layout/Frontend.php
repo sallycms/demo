@@ -1,4 +1,12 @@
 <?php
+/*
+ * Copyright (c) 2012, webvariants GbR, http://www.webvariants.de
+ *
+ * This file is released under the terms of the MIT license. You can find the
+ * complete text in the attached LICENSE file or online at:
+ *
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 
 class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 	protected $article = null;
@@ -23,9 +31,6 @@ class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 		$this->addMeta('robots', 'index, follow, noodp');
 		$this->addMeta('language', 'de_DE');
 
-		// Content-Type
-		header('Content-Type: text/html; charset=UTF-8');
-
 		//////////////////////////////////////////////////////////////////
 		// CSS
 
@@ -46,11 +51,12 @@ class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 		// Deployer-Integration
 
 		if (class_exists('WV5_Deployment')) {
+			$compression = sly_Core::isDeveloperMode() ? WV5_Deployer_JavaScript::COMPRESSION_NONE : WV5_Deployer_JavaScript::COMPRESSION_GOOGLE;
+
 			WV5_Deployment::useTimeStamp(true);
-			WV5_Deployment::useScaffold(true);
 			WV5_Deployment::setCSSIndices(array('default', 'IF lt IE 7'));
 			WV5_Deployment::setJSIndices(array('frameworks', 'default'));
-			WV5_Deployment::setJSCompressionMode(WV5_Deployer_JavaScript::COMPRESSION_GOOGLE);
+			WV5_Deployment::setJSCompressionMode($compression);
 		}
 	}
 

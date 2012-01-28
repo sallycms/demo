@@ -7,7 +7,7 @@
 FrontendHelper::printHeader();
 ?>
 <div id="content">
-	<div class="left"><?= $article->getArticle('left') ?></div>
-	<div class="right"><?= $article->getArticle('right') ?></div>
+	<div class="left"><?php echo $article->getContent('left') ?></div>
+	<div class="right"><?php echo $article->getContent('right') ?></div>
 </div>
 <?php FrontendHelper::printFooter(); ?>

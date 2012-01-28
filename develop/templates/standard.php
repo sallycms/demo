@@ -6,5 +6,5 @@
 
 FrontendHelper::printHeader();
 ?>
-<div id="content"><?= $article->getArticle('main') ?></div>
+<div id="content"><?php echo $article->getContent('main') ?></div>
 <?php FrontendHelper::printFooter(); ?>

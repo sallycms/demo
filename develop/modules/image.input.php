@@ -3,7 +3,5 @@
  * @sly name  image
  * @sly title Bild
  */
-?>
 
-<label>Bild auswählen</label>
-SLY_MEDIA_WIDGET[image]
+$form->add(new sly_Form_Widget_Media('image', 'Bild auswählen', $values->get('image')));

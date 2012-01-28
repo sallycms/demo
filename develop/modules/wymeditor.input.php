@@ -4,14 +4,11 @@
  * @sly title Texteditor
  */
 
-ob_start();
-?>SLY_HTML_VALUE[text]<?
-$html = ob_get_clean();
+if (!class_exists('sly_Form_WYMEditor')) {
+	throw new sly_Exception('Das WYMeditor-AddOn muss aktiviert sein, um dieses Modul zu verwenden.');
+}
 
-$editor = WV14_WYMEditor::getSimpleEditor();
-$editor->embed();
-unset($editor);
-?>
-<div class="wvModule">
-	<textarea name="VALUE[text]" class="wymeditor" cols="80" rows="10"><?= sly_html($html) ?></textarea>
-</div>
+$editor = new sly_Form_WYMEditor('html', 'Fließtext', $values->get('html'));
+$editor->useFullWidth();
+
+$form->add($editor);

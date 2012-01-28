@@ -10,15 +10,15 @@
 		<div id="topline">
 			<p>Das Sally CMS &ndash; gut bedienbare und professionelle Webseiten</p>
 			<ul>
-				<li><a href="<?= FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
-				<li><a href="<?= FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
-				<li><a href="<?= FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
+				<li><a href="<?php echo FrontendHelper::getSetting('contact')->getUrl() ?>">Kontakt</a></li>
+				<li><a href="<?php echo FrontendHelper::getSetting('about')->getUrl() ?>">Über Sally</a></li>
+				<li><a href="<?php echo FrontendHelper::getSetting('imprint')->getUrl() ?>">Impressum</a></li>
 			</ul>
 		</div>
 
 		<div id="header">
-			<a href="<?= FrontendHelper::getMainArticleURL() ?>" id="logo">
-				<img src="assets/images/logo.png" alt="<?= sly_html(sly_Core::getProjectName()) ?>" />
+			<a href="<?php echo FrontendHelper::getMainArticleURL() ?>" id="logo">
+				<img src="assets/images/logo.png" alt="<?php echo sly_html(sly_Core::getProjectName()) ?>" />
 			</a>
 
 			<div id="claim">
@@ -28,4 +28,4 @@
 		</div>
 
 		<div id="main">
-			<div id="navigation"><?= FrontendHelper::getNavigationHTML() ?></div>
+			<div id="navigation"><?php echo FrontendHelper::getNavigationHTML() ?></div>
