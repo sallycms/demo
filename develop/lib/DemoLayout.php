@@ -8,7 +8,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-class sly_Layout_Frontend extends sly_Layout_XHTML5 {
+class DemoLayout extends sly_Layout_XHTML5 {
 	protected $article = null;
 
 	public function __construct() {
@@ -29,7 +29,7 @@ class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 		// Meta- und HTTP-Meta-Angaben setzen
 
 		$this->addMeta('robots', 'index, follow, noodp');
-		$this->addMeta('language', 'de_DE');
+		$this->setLanguage('de_DE');
 
 		//////////////////////////////////////////////////////////////////
 		// CSS
@@ -62,11 +62,11 @@ class sly_Layout_Frontend extends sly_Layout_XHTML5 {
 
 	public function printHeader() {
 		parent::printHeader();
-		sly_Service_Factory::getTemplateService()->includeFile('top');
+		sly_Util_Template::render('top');
 	}
 
 	public function printFooter() {
-		sly_Service_Factory::getTemplateService()->includeFile('bottom');
+		sly_Util_Template::render('bottom');
 		parent::printFooter();
 	}
 }

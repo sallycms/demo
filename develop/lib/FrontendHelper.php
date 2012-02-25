@@ -24,9 +24,12 @@ class FrontendHelper {
 		return self::$navigation;
 	}
 
+	/**
+	 * @return DemoLayout
+	 */
 	public static function getLayout() {
 		if (!isset(self::$layout)) {
-			self::$layout = new sly_Layout_Frontend();
+			self::$layout = new DemoLayout();
 			sly_Core::setLayout(self::$layout);
 		}
 
@@ -41,28 +44,44 @@ class FrontendHelper {
 		self::getLayout()->printFooter();
 	}
 
+	/**
+	 * @return string
+	 */
 	public static function getNavigationHTML() {
 		return self::getNavigation()->getNavigationHTMLString();
 	}
 
+	/**
+	 * @return string
+	 */
 	public static function getMainArticleURL() {
 		return sly_Util_Article::findSiteStartArticle()->getUrl();
 	}
 
 	public static function getSetting($key, $default = false, $namespace = 'project') {
+		$service = sly_Service_Factory::getAddOnService();
+
+		if (!$service->isAvailable('global_settings')) {
+			return $default;
+		}
+
 		$result = WV8_Settings::getValue($namespace, $key, $default);
 
 		if (in_array($key, array('imprint', 'contact', 'about'))) {
 			$art    = sly_Util_Article::findById($result);
 			$result = $art ? $art : sly_Core::getCurrentArticle();
 		}
-		elseif ($key == 'email') {
+		elseif ($key === 'email' && $service->isAvailable('developer_utils')) {
 			$result = WV_Mail::getSpamProtectedMail($result);
 		}
 
 		return $result;
 	}
 
+	/**
+	 * @param  string $text
+	 * @return string
+	 */
 	public static function processWymeditor($text) {
 		$service = sly_Service_Factory::getAddOnService();
 

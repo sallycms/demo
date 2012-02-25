@@ -4,4 +4,4 @@
  * @sly title Bild
  */
 
-$form->add(new sly_Form_Widget_Media('image', 'Bild auswählen', $values->get('image')));
+$form->addMedia('image', 'Bild auswählen', $values->get('image'));
