@@ -13,7 +13,7 @@ class DemoLayout extends sly_Layout_XHTML5 {
 
 	public function __construct() {
 		//////////////////////////////////////////////////////////////////
-		// Zeitzone sollte auch im Frontend gesetzt werden (PHP 5.3+)
+		// Zeitzone sollte auch im Frontend gesetzt werden (PHP 5.1+)
 
 		date_default_timezone_set(sly_Core::getTimezone());
 

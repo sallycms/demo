@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 
-+global-reset;
-+html5-reset;
-
 body {
 	background: url("../images/background.png") repeat-x 0 0 #b1b3b1;
 	margin: 0;

@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
++global-reset;
++html5-reset;
+
 body {
 	color: #4d4646;
 	font-size: 11px;
