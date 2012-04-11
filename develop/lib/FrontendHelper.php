@@ -30,18 +30,18 @@ class FrontendHelper {
 	public static function getLayout() {
 		if (!isset(self::$layout)) {
 			self::$layout = new DemoLayout();
+			self::$layout->openBuffer();
 			sly_Core::setLayout(self::$layout);
 		}
 
 		return self::$layout;
 	}
 
-	public static function printHeader() {
-		self::getLayout()->printHeader();
-	}
-
 	public static function printFooter() {
-		self::getLayout()->printFooter();
+		$layout = self::getLayout();
+		$layout->closeBuffer();
+
+		print $layout->render();
 	}
 
 	/**

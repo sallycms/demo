@@ -4,7 +4,7 @@
  * @sly slots {left: Linke Spalte, right: Rechte Spalte}
  */
 
-FrontendHelper::printHeader();
+FrontendHelper::getLayout();
 ?>
 <div id="content">
 	<div class="left"><?php echo $article->getContent('left') ?></div>

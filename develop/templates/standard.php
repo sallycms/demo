@@ -4,7 +4,7 @@
  * @sly slots {main: Hauptbereich}
  */
 
-FrontendHelper::printHeader();
+FrontendHelper::getLayout();
 ?>
 <div id="content"><?php echo $article->getContent('main') ?></div>
 <?php FrontendHelper::printFooter(); ?>
