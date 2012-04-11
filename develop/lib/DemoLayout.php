@@ -43,7 +43,6 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		// JavaScript
 
 		$this->addJavaScriptFile('assets/js/jquery.min.js', 'frameworks');
-		$this->addJavaScriptFile('assets/js/nospammail.min.js', 'frameworks');
 
 		// $this->addJavaScript('var x = 10;');
 
