@@ -34,8 +34,8 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		//////////////////////////////////////////////////////////////////
 		// CSS
 
-		$this->addCSSFile('assets/css/textstyles.css');
-		$this->addCSSFile('assets/css/main.css');
+		$this->addCSSFile('assets/css/textstyles.less');
+		$this->addCSSFile('assets/css/main.less');
 
 		// $this->addCSS('body { magin-top: 20px; }');
 
