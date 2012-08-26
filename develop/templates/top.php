@@ -1,7 +1,6 @@
 <?php
 /**
- * @sly name  top
- * @sly active false
+ * @sly name top
  */
 
 $self = sly_Core::getCurrentArticle();

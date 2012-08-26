@@ -50,6 +50,7 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		// Deployer-Integration
 
 		if (class_exists('WV5_Deployment')) {
+			// nicht komprimieren, falls im Entwicklermodus
 			$compression = sly_Core::isDeveloperMode() ? WV5_Deployer_JavaScript::COMPRESSION_NONE : WV5_Deployer_JavaScript::COMPRESSION_GOOGLE;
 
 			WV5_Deployment::useTimeStamp(true);

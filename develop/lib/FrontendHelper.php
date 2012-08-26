@@ -61,7 +61,7 @@ class FrontendHelper {
 	public static function getSetting($key, $default = false, $namespace = 'project') {
 		$service = sly_Service_Factory::getAddOnService();
 
-		if (!$service->isAvailable('global_settings')) {
+		if (!$service->isAvailable('webvariants/global-settings')) {
 			return $default;
 		}
 
@@ -71,7 +71,7 @@ class FrontendHelper {
 			$art    = sly_Util_Article::findById($result);
 			$result = $art ? $art : sly_Core::getCurrentArticle();
 		}
-		elseif ($key === 'email' && $service->isAvailable('developer_utils')) {
+		elseif ($key === 'email' && $service->isAvailable('webvariants/developer-utils')) {
 			$result = WV_Mail::getSpamProtectedMail($result);
 		}
 
@@ -85,15 +85,15 @@ class FrontendHelper {
 	public static function processWymeditor($text) {
 		$service = sly_Service_Factory::getAddOnService();
 
-		if ($service->isAvailable('image_resize')) {
+		if ($service->isAvailable('sallycms/image-resize')) {
 			$text = A2_Thumbnail::scaleMediaImagesInHtml($text, 200);
 		}
 
-		if ($service->isAvailable('developer_utils')) {
+		if ($service->isAvailable('webvariants/developer-utils')) {
 			$text = WV_Mail::protectEmailInHtml($text);
 		}
 
-		if ($service->isAvailable('wymeditor')) {
+		if ($service->isAvailable('webvariants/wymeditor')) {
 			$text = WV14_WYMEditor::fixMediaInBackend($text);
 		}
 

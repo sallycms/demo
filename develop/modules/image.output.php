@@ -5,7 +5,7 @@
  */
 
 $image  = $values->get('image');
-$resize = sly_Service_Factory::getAddOnService()->isAvailable('image_resize');
+$resize = sly_Service_Factory::getAddOnService()->isAvailable('sallycms/image-resize');
 
 if ($image): ?>
 <div class="image">
