@@ -68,8 +68,10 @@ class FrontendHelper {
 		$result = WV8_Settings::getValue($namespace, $key, $default);
 
 		if (in_array($key, array('imprint', 'contact', 'about'))) {
-			$art    = sly_Util_Article::findById($result);
-			$result = $art ? $art : sly_Core::getCurrentArticle();
+			if (!($result instanceof sly_Model_Article)) {
+				$art    = sly_Util_Article::findById($result);
+				$result = $art ? $art : sly_Core::getCurrentArticle();
+			}
 		}
 		elseif ($key === 'email' && $service->isAvailable('webvariants/developer-utils')) {
 			$result = WV_Mail::getSpamProtectedMail($result);
@@ -86,7 +88,7 @@ class FrontendHelper {
 		$service = sly_Service_Factory::getAddOnService();
 
 		if ($service->isAvailable('sallycms/image-resize')) {
-			$text = A2_Thumbnail::scaleMediaImagesInHtml($text, 200);
+			$text = A2_Util::scaleMediaImagesInHtml($text, 200);
 		}
 
 		if ($service->isAvailable('webvariants/developer-utils')) {
