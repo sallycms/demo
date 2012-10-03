@@ -24,7 +24,7 @@ RewriteRule ^backend/(.*)$     sally/backend/$1 [L,QSA]
 RewriteRule ^imageresize/(.+)$ data/mediapool/$1 [L]
 
 # Deployer
-RewriteRule ^assets/deployer\.([a-f0-9]+)\.min\.(css|js|less)$ data/dyn/public/webvariants/deployer/compressed_$1.$2
+RewriteRule ^assets/([^/]+)/deployer\.([a-f0-9]+)\.min\.(css|js|less)$ data/dyn/public/webvariants/deployer/compressed_$2.$3
 
 # Assets Cache
 RewriteCond %{REQUEST_FILENAME}  \.(less|css|js|gif|jpg|jpeg|png|swf|ico|pdf)$
