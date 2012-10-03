@@ -42,6 +42,9 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		//////////////////////////////////////////////////////////////////
 		// JavaScript
 
+		// falls Scripts direkt vor dem schließenden </body> Tag ausgegeben werden sollen (anstatt im <head>)
+		// $this->putJavaScriptAtBottom();
+
 		$this->addJavaScriptFile('assets/js/jquery.min.js', 'frameworks');
 
 		// $this->addJavaScript('var x = 10;');
