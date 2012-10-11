@@ -86,7 +86,7 @@ class FrontendHelper {
 		$service = sly_Service_Factory::getAddOnService();
 
 		if ($service->isAvailable('image_resize')) {
-			$text = A2_Thumbnail::scaleMediaImagesInHtml($text, 200);
+			$text = A2_Util::scaleMediaImagesInHtml($text, 200);
 		}
 
 		if ($service->isAvailable('developer_utils')) {
