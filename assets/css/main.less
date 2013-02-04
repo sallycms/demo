@@ -96,6 +96,7 @@ body {
 		border-bottom: 1px solid #ccc;
 		font-size: 14px;
 		padding: 15px 0;
+		list-style: none;
 
 		&.active {
 			border-bottom: 1px solid #88c7d3;
@@ -114,7 +115,6 @@ body {
 
 	.wymeditor {
 		width: 100%;
-		min-height: 100px;
 	}
 
 	div.left, div.right {
@@ -146,74 +146,4 @@ body {
 	a:active, a:hover {
 		color: #2d8393;
 	}
-}
-
-#contactform {
-	min-height: 400px;
-
-	#error {
-		background: red;
-	}
-
-	#name, #email, #message, #send {
-		border-top: 1px dotted #ACA9A9;
-		clear: both;
-		padding: 7px;
-		background-color: #fff;
-		vertical-align: middle;
-		width: 722px;
-	}
-
-	#send {
-		input {
-			border-radius: 4px 4px 4px 4px;
-			width: auto;
-			background: url("../images/button.gif");
-			border: 1px solid #D9D9D9;
-			color: #4D4646;
-			margin-left: 145px;
-			padding: 1px 6px;
-			text-decoration: none;
-		}
-	}
-
-	label {
-		font-size: 12px;
-		float: left;
-		padding: 0;
-		line-height: 21px;
-		width: 145px;
-	}
-
-	input {
-		border: 1px solid #D9D9D9;
-		width: 456px;
-	}
-
-	textarea {
-		border: 1px solid #D9D9D9;
-		width: 456px;
-		min-height: 150px;
-	}
-}
-
-.error_message, .info_message {
-	background-image: url("../images/warning.gif");
-	background-position: 0 50%;
-	background-repeat: no-repeat;
-	width: 645px;
-	border: 1px solid #EFEFEF;
-	border-radius: 4px 4px 4px 4px;
-	color: #FFFFFF;
-	margin-bottom: 0;
-	padding: 8px 45px;
-	margin-bottom: 10px;
-}
-
-.error_message {
-	background-color: red;
-}
-
-.info_message {
-	background-color: #1F9EB5;
 }

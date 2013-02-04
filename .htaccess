@@ -8,17 +8,24 @@
 RewriteEngine On
 # RewriteBase /
 
-# Single-Domain
-# RewriteCond %{HTTP_HOST} ^example\.de$
-# RewriteRule ^(.*)$ http://www.example.de/$1 [R=301,L]
-
 # Don't allow access to certain files
 <FilesMatch "^((composer\.(json|lock))|version|LICENSE)$">
 	Deny from all
 </FilesMatch>
 
-RewriteRule ^backend/?$        sally/backend/ [L,QSA]
-RewriteRule ^backend/(.*)$     sally/backend/$1 [L,QSA]
+# Single-Domain
+# RewriteCond %{HTTP_HOST} ^example\.de$
+# RewriteRule ^(.*)$ http://www.example.de/$1 [R=301,L]
+
+# Sally Legacy Backend
+RewriteRule ^backend/assets/(.*?)$ sally/backend/assets/$1 [L]
+RewriteRule ^backend/?$            index.php [QSA,E=SLYAPP:backend]
+RewriteRule ^backend/(.*)$         index.php [QSA,E=SLYAPP:backend]
+
+# Sally Setup
+RewriteRule ^setup/assets/(.*?)$ sally/setup/assets/$1 [L]
+RewriteRule ^setup/?$            index.php [QSA,E=SLYAPP:setup]
+RewriteRule ^setup/(.*)$         index.php [QSA,E=SLYAPP:setup]
 
 # Image Resize
 RewriteRule ^imageresize/(.+)$ data/mediapool/$1 [L]
@@ -27,7 +34,7 @@ RewriteRule ^imageresize/(.+)$ data/mediapool/$1 [L]
 RewriteRule ^assets/([^/]+)/deployer\.([a-f0-9]+)\.min\.(css|js|less)$ data/dyn/public/webvariants/deployer/compressed_$2.$3
 
 # Assets Cache
-RewriteCond %{REQUEST_FILENAME}  \.(less|css|js|gif|jpg|jpeg|png|swf|ico|pdf)$
+RewriteCond %{REQUEST_FILENAME}  \.(less|css|js|gif|jpg|jpeg|png|swf|ico|pdf|webp)$
 RewriteCond %{REQUEST_URI}       !wym_styles.css$
 RewriteRule ^(.*)$               data/dyn/public/sally/static-cache/$1 [L]
 
@@ -37,4 +44,4 @@ RewriteCond %{REQUEST_FILENAME}  !-l
 RewriteCond %{REQUEST_URI}       !^assets/.*
 RewriteCond %{REQUEST_URI}       !^data/.*
 RewriteCond %{REQUEST_URI}       !^sally/.*
-RewriteRule .*                   index.php
+RewriteRule .*                   index.php [E=SLYAPP:frontend,E=SLYBASE:/]

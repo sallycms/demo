@@ -10,4 +10,5 @@ FrontendHelper::getLayout();
 	<div class="left"><?php echo $article->getContent('left') ?></div>
 	<div class="right"><?php echo $article->getContent('right') ?></div>
 </div>
-<?php FrontendHelper::printFooter(); ?>
+<?php
+FrontendHelper::printFooter();
