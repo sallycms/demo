@@ -5,3 +5,6 @@ ARTICLE_TYPES:
   twocolumn:
     title: Zweispaltige Seite
     template: twocolumn
+  test:
+   title: test
+   template: test2

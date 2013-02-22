@@ -127,7 +127,88 @@ body {
 
 	p:first-letter {
 		padding-left: 12px;
-		background: url(../images/bullet_square.png) left 4px no-repeat;
+		 background: url(../images/bullet_square.png) left 4px no-repeat;
+	}
+	.gallery_widget {
+		overflow: hidden;
+		width: auto;
+		margin: 0 auto;
+		/* margin: 11px 0; */
+		margin-bottom: 10px;
+		.image_container {
+			float: left;
+			.image_title {
+				border-top: 1px solid #ccc;
+				margin: 0 !important;
+				padding: 10px 5px;
+			}
+			.image_gallery {
+				li {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					line-height: 0;
+					float: left;
+					img {
+						margin: 0;
+						padding: 5.25px;
+					}
+				}
+				li.bottom_images {display:none;}
+			}
+			.extender {
+				float: left;
+				width: 100%;
+				text-align: center;
+				margin-top: 15px;
+				border-top: 1px solid #ccc;
+				p {
+					margin: 0 auto;
+					width: 20em;
+					line-height: 100%;
+					padding: 10px;
+					font-size: 12px;
+
+					&:first-letter {
+						background: none;
+					}
+				}
+				.clicker {
+					margin-top: 10px;
+					border-radius: 5px;
+					font-size: 20px;
+				}
+				.clicker:hover {
+					color: #787373;
+				}
+				.collapser {
+					display:none;
+					margin-bottom: 15px;
+				}
+			}
+			#bottom {
+				border-bottom: 1px solid #ccc;
+				margin: 15px 0;
+				margin-top: 10px;
+				padding: 15px 0;
+			}
+		}
+	}
+	.slideshow {
+		position: relative;
+		height: 350px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 8;
+		}
+		img.active {
+			z-index:10;
+		}
+		img.last-active {
+			z-index: 9;
+		}
 	}
 }
 
@@ -146,4 +227,17 @@ body {
 	a:active, a:hover {
 		color: #2d8393;
 	}
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../images/fancybox_sprite.png') !important;
+}
+#fancybox-loading div {
+	background: url('../images/fancybox_loading.gif') center center no-repeat !important;
+}
+.fancybox-nav {
+	background: transparent url('../images/blank.gif') !important; /* helps IE */
+}
+.fancybox-overlay {
+	background: url('../images/fancybox_overlay.png') !important;
 }

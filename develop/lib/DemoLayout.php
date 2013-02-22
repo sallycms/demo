@@ -36,6 +36,7 @@ class DemoLayout extends sly_Layout_XHTML5 {
 
 		$this->addCSSFile('assets/css/textstyles.less');
 		$this->addCSSFile('assets/css/main.less');
+		$this->addCSSFile('assets/css/jquery.fancybox.css');
 
 		// $this->addCSS('body { magin-top: 20px; }');
 
@@ -46,6 +47,8 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		// $this->putJavaScriptAtBottom();
 
 		$this->addJavaScriptFile('assets/js/jquery.min.js', 'frameworks');
+		$this->addJavaScriptFile('assets/js/jquery.fancybox.pack.js');
+		$this->addJavaScriptFile('assets/js/main.js');
 
 		// $this->addJavaScript('var x = 10;');
 
