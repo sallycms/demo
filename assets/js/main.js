@@ -9,23 +9,22 @@ jQuery(function($) {
 			buttons	: {}
 		}
 	});
+	$(".preview").fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: true,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
 
 	$('.extender').click(function() {
 		$('.bottom_images').slideToggle("slow", function() {
 		});
 		$('.clicker, #extenderInfo').toggle(0, function() {
   		});
-	});
-	function slideSwitch() {
-    	var $active = $('.slideshow img.active');
-    	var $next = $active.next();    
-    
-    	$next.addClass('active');
-    
-   		$active.removeClass('active');
-	}
-
-	$(function() {
-    	setInterval( "slideSwitch()", 5000 );
 	});
 });

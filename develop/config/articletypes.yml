@@ -5,6 +5,7 @@ ARTICLE_TYPES:
   twocolumn:
     title: Zweispaltige Seite
     template: twocolumn
-  test:
-   title: test
-   template: test2
+    modules: ['image','weiterleitung','wymeditor']
+  newsarticle:
+    title: News Artikel
+    template: standard

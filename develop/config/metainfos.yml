@@ -6,4 +6,9 @@ metainfo:
       params:
         maxlength: 50
       metapage: false
-      types: [default, twocolumn]
+      types: [default, twocolumn, newsarticle]
+    date:
+      title: News Datum
+      datatype: datetime
+      metapage: false
+      types: [newsarticle]
