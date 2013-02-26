@@ -6,7 +6,15 @@ metainfo:
       params:
         maxlength: 50
       metapage: false
-      types: [default, twocolumn, newsarticle]
+      types: [default, twocolumn]
+    author:
+      title: Autor
+      datatype: stringline
+      params:
+        maxlength: 50
+      helptext: Geben Sie hier Ihren Namen an.
+      metapage: false
+      types: [newsarticle]
     date:
       title: News Datum
       datatype: datetime

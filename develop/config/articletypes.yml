@@ -8,4 +8,5 @@ ARTICLE_TYPES:
     modules: ['image','weiterleitung','wymeditor']
   newsarticle:
     title: News Artikel
-    template: standard
+    template: newsarticle
+    modules: ['image','wymeditor']

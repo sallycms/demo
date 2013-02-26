@@ -5,7 +5,7 @@
 
 $self = sly_Core::getCurrentArticle();
 ?>
-<div id="page">
+<div id="page" class="<?php print sly_Core::getCurrentArticle()->getType(); ?>">
 	<div id="container">
 
 		<div id="topline">

@@ -38,8 +38,15 @@ class Metalist_Frontend {
 	protected $direction  = null;
 	protected $isMetaSort = false;
 
+	protected $additionalValues = array();
+
 	public function __construct($listID) {
 		$this->listID = $listID;
+	}
+
+	public function setValue ($key, $value) {
+		$this->additionalValues[$key] = $value;
+		return $this;
 	}
 
 	public function filterByCategory($category, $recursive = false) {
@@ -149,8 +156,10 @@ class Metalist_Frontend {
 	protected function printList(array $articles, array $pagerConfig, array $feedLink) {
 		$service = sly_Service_Factory::getTemplateService();
 
+		$additionalValues = $this->additionalValues;
+
 		$this->includePager('top', $pagerConfig);
-		$service->includeFile($this->articleTemplate, compact('articles', 'feedLink'));
+		$service->includeFile($this->articleTemplate, compact('articles', 'feedLink', 'additionalValues'));
 		$this->includePager('bottom', $pagerConfig);
 	}
 
