@@ -10,3 +10,6 @@ ARTICLE_TYPES:
     title: News Artikel
     template: newsarticle
     modules: ['image','wymeditor']
+  homepage:
+    title: Startseite
+    template: homepage

@@ -20,3 +20,9 @@ metainfo:
       datatype: datetime
       metapage: false
       types: [newsarticle]
+    keyvisual:
+      title: Keyvisual
+      datatype: medialist
+      params: {max: 100}
+      metapage: false
+      types: [homepage]

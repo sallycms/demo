@@ -245,13 +245,6 @@ body {
 		}
 	}
 	.newslist_widget {
-		.newslist_head {
-			padding: 9px 0;
-			border-top: 1px solid #ccc;
-			border-bottom: 1px solid #ccc;
-			font-size: 24px;
-			margin-bottom: 20px;
-		}
 		ul {
 			a {
 				color: #787373;
@@ -278,9 +271,15 @@ body {
 				.newslist_title {
 					font-family: Garamond, serif;
 					font-size: 20px;
+					overflow: auto;
 					margin-top: 10px;
 					color: #787373;
 					background-color: #fff;
+					a {
+						float: left;
+						width: 525px;
+						txt-align: justify;
+					}
 					span {
 						float: right;
 						font-size: 12px;
@@ -295,6 +294,24 @@ body {
 			.fancyReader {
 				display: none;
 			}
+		}
+	}
+	.pager {
+		margin: 3% 0;
+		margin: 3% 0;
+		text-align: center;
+		.before, .after, .active {
+			padding: 5px;
+		}
+		.active {
+			border-bottom: 2px solid #ccc;
+			color: #2d8393;
+		}
+		.prev {
+			float: left
+		}
+		.next {
+			float: right
 		}
 	}
 }
