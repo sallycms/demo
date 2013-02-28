@@ -25,4 +25,4 @@ metainfo:
       datatype: medialist
       params: {max: 100}
       metapage: false
-      types: [homepage]
+      types: [start]

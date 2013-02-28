@@ -16,7 +16,23 @@ $self = sly_Core::getCurrentArticle();
 				<li><a href="<?php echo FrontendHelper::getSetting('imprint', $self)->getUrl() ?>">Impressum</a></li>
 			</ul>
 		</div>
+		<?php
+			if ($self->getType()=="start") {
 
+				$keyvisual   = $self->getMeta('keyvisual');
+				$resize      = sly_Util_AddOn::isAvailable('sallycms/image-resize');
+				$html_id     = count($keyvisual) != 1 ? 'id="keyvisual"' : "";
+
+				print '<div '.$html_id.'>';
+				$image_width = "905"; $image_height = "200";
+				$image_source = $resize ? 'imageresize/c'.$image_width.'w__c'.$image_height.'h__u__' : 'data/mediapool/';
+				foreach ($keyvisual as $media) {
+					print '<div><img src="'.$image_source.$media.'" alt="" /></div>';
+					$image_class = "";
+				}
+				print '</div>';
+			}
+		?>
 		<div id="header">
 			<a href="<?php echo FrontendHelper::getMainArticleURL() ?>" id="logo">
 				<img src="assets/images/logo.png" alt="<?php echo sly_html(sly_Core::getProjectName()) ?>" />
