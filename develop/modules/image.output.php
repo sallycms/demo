@@ -1,7 +1,7 @@
 <?php
 /**
- * @sly name  image
- * @sly title Bild
+ * @sly name   image
+ * @sly title  Bild
  */
 
 $image  = $values->get('image');

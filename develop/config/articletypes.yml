@@ -2,14 +2,15 @@ ARTICLE_TYPES:
   default:
     title: Standardseite
     template: standard
+  # Die Startseite unterscheidet sich von der normalen nur durch die ihr zugewiesenen Metainfos.
+  start:
+    title: Startseite
+    template: standard
   twocolumn:
     title: Zweispaltige Seite
     template: twocolumn
-    modules: ['image','weiterleitung','wymeditor']
-  newsarticle:
-    title: News Artikel
+    modules: [image, redirect, wymeditor]
+  news:
+    title: News-Beitrag
     template: newsarticle
-    modules: ['image','wymeditor']
-  start:
-    title: Startseite
-    template: start
+    modules: [image, wymeditor]

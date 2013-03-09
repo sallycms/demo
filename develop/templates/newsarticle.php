@@ -1,46 +1,84 @@
 <?php
 /**
- * @sly  name         newsarticle
- * @sly  title        News Artikel
- * @sly slots {main: Hauptbereich}
+ * @sly name   newsarticle
+ * @sly title  News Artikel
+ * @sly slots  {main: Hauptbereich}
  */
 
-$listid = sly_get('listid', 'int', 0);
+// add additional CSS code
+FrontendHelper::getLayout()->addCSSFile('assets/css/newslist.less');
 
-$catId = $article->getParentId();   //returns 2
-$currCatPos = $article->getPosition(); //returns 0
-$allArticle = WV_Sally::filterArticles(new WV_Filter_And(
-      new WV_Filter_Article_Column('article.re_id', $catId, '='),
-      new WV_Filter_Article_Type('newsarticle'),
-      new WV_Filter_Article_Online()
-    ), 'article.catpos', 'ASC');
-$countArt = count($allArticle); $next_link = null; $prev_link = null;
-if ($countArt > 1) {
- foreach ($allArticle as $article_i) {
- 	if ($article_i->getPosition() == ($currCatPos + 1)) {
- 		$next_link = $article_i->getUrl(array('listid' => sly_Core::getCurrentArticle()->getId()));
- 	}
- 	if ($article_i->getPosition() == ($currCatPos - 1)) {
- 		$prev_link = $article_i->getUrl(array('listid' => sly_Core::getCurrentArticle()->getId()));
- 	}
- }
+$origin   = sly_get('origin', 'int', 0);
+$artID    = $article->getId();
+$name     = $article->getName();
+$content  = $article->getContent();
+$catID    = $article->getParentId();
+$catPos   = $article->getPosition();
+$author   = $article->getMeta('author');
+$date     = $article->getMeta('date');
+$date     = $date ? date('d.m.Y', $date) : '';
+$nextLink = null;
+$prevLink = null;
+
+// use the developer-utils' generic filter system to select all sibling news articles
+$allNews  = WV_Sally::filterArticles(new WV_Filter_And(
+	new WV_Filter_Article_CategoryID($catID),
+	new WV_Filter_Article_Type('news'),
+	new WV_Filter_Article_Online()
+), 'article.catpos', 'ASC');
+
+foreach ($allNews as $newsArticle) {
+	$pos = $newsArticle->getPosition();
+
+	if ($pos === $catPos+1) {
+		$nextLink = $newsArticle->getUrl(array('origin' => $origin));
+	}
+
+	if ($pos === $catPos-1) {
+		$prevLink = $newsArticle->getUrl(array('origin' => $origin));
+	}
 }
-else {
- 	if ($next_link == null) $next_link = $allArticle[0]->getUrl();
-	if ($prev_link == null) $prev_link = $allArticle[count($allArticle) - 1]->getUrl();
-}
-$date_unix = $article->getMeta('date'); $date = date('d.m.Y', $date_unix); if ($date == "01.01.1970") $date = "";
-$author    = $article->getMeta('author', null);
 
 FrontendHelper::getLayout();
-print '<div id="content"><div class="newsarticle_title">'.$article->getName().'</div>';
-print '<div class="newsarticle_content">'.$article->getContent('main').'</div>';
-print '<div class="newsarticle_bottom">';
-print ($date !== null) ? '<span class="leftValue">'.$author.'</span>' : '';
-print '<span class="rightValue">'.$date.'</span></div>';
-print '<div id="footerBar">';
-print ($prev_link !== null) ? '<a id="prevLink" href="'.$prev_link.'">vorheriger Artikel</a>' : '';
-if ($listid > 0) print '<a href="'.(sly_Util_Article::findById($listid)->getUrl()).'">Verzeichniss</a>';
-print ($next_link !== null) ? '<a id="nextLink" href="'.$next_link.'">nächster Artikel</a>' : '';
-print '</div></div>';
-FrontendHelper::printFooter(); ?>
+?>
+<div id="content" class="news-article">
+	<h2><?php print sly_html($name) ?></h2>
+	<div class="content"><?php print $content ?></div>
+
+	<?php if ($author || $date): ?>
+	<div class="infos">
+		<?php if ($author): ?>
+		<span class="author"><?php print sly_html($author) ?></span>
+		<?php endif ?>
+		<span class="date"><?php print $date ?></span>
+	</div>
+	<?php endif ?>
+
+	<div class="nav">
+		<?php
+		if ($prevLink) {
+			?><span class="prev"><a href="<?php print $prevLink ?>">« vorheriger Artikel</a></span><?php
+		}
+		else {
+			?><span class="prev">&nbsp;</span><?php
+		}
+
+		if ($origin) {
+			$article = sly_Util_Article::findById($origin);
+
+			if ($origin) {
+				print '<a href="'.$article->getUrl().'">Verzeichnis</a>';
+			}
+		}
+
+		if ($nextLink) {
+			?><span class="next"><a href="<?php print $nextLink ?>">nächster Artikel »</a></span><?php
+		}
+		else {
+			?><span class="next">&nbsp;</span><?php
+		}
+		?>
+	</div>
+</div>
+<?php
+FrontendHelper::printFooter();

@@ -1,43 +1,52 @@
 jQuery(function($) {
-	$(".fancybox-button").fancybox({
-		prevEffect		: 'none',
-		nextEffect		: 'none',
-		closeBtn		: true,
-		arrows			: true,
-		helpers		: {
-			title	: { type : 'inside' },
-			buttons	: {}
+	// init Fancybox links
+	$('.fancybox').fancybox({
+		prevEffect: 'none',
+		nextEffect: 'none',
+		closeBtn  : true,
+		arrows    : true,
+		helpers   : {
+			title  : {
+				type: 'inside'
+			},
+			buttons: { }
 		}
 	});
-	$('.extender').click(function() {
-		$('.bottom_images').slideToggle("slow", function() {
-		});
-		$('.clicker, #extenderInfo').toggle(0, function() {
-  		});
-	});
 
-	$('.newslist_title').not('.newslist_title_active').next('.newslist_preview').hide();
-	$('.newslist_title').click( function() {
-		var trig = $(this);
-		if ( trig.hasClass('newslist_title_active') ) {
-			trig.next('.newslist_preview').slideToggle('slow');
-			trig.removeClass('newslist_title_active');
-		} else {
-			$('.newslist_title_active').next('.newslist_preview').slideToggle('slow');
-			$('.newslist_title_active').removeClass('newslist_title_active');
-			trig.next('.newslist_preview').slideToggle('slow');
-			trig.addClass('newslist_title_active');
-		};
+	// toggle additional gallery images
+	$('.extend a').on('click', function() {
+		var
+			self    = $(this),
+			gallery = self.closest('.gallery'),
+			alt     = self.data('alt');
+
+		gallery.find('.bottom').slideToggle('slow');
+		gallery.find('.info').toggle();
+
+		// change link text
+		self.data('alt', self.text()).text(alt);
+
 		return false;
 	});
-	$("#keyvisual > div:gt(0)").hide();
 
-	setInterval(function() { 
-  	$('#keyvisual > div:first')
-    	.fadeOut(1000)
-    	.next()
-    	.fadeIn(1000)
-    	.end()
-    	.appendTo('#keyvisual');
-	},  20000);
+	// hide teasers by default
+	$('.newslist .teaser').hide();
+
+	// toggle teasers on click on their title
+	$('.newslist .title a').on('click', function() {
+		$(this).closest('li').find('.teaser').slideToggle('slow');
+		return false;
+	});
+
+	// hide all keyvisuals except the first one
+	$('#keyvisual div').not(':first').hide();
+
+	// toggle keyvisuals every 5 seconds
+	setInterval(function() {
+		$('#keyvisual > div:first')
+			.fadeOut(1000)
+			.next().fadeIn(1000)
+			.end()
+			.appendTo('#keyvisual');
+	}, 5000);
 });

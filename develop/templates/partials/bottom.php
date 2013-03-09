@@ -1,6 +1,6 @@
 <?php
 /**
- * @sly name bottom
+ * @sly name partials.bottom
  */
 
 $self = sly_Core::getCurrentArticle();

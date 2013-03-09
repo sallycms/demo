@@ -68,11 +68,11 @@ class DemoLayout extends sly_Layout_XHTML5 {
 
 	public function printHeader() {
 		parent::printHeader();
-		sly_Util_Template::render('top');
+		sly_Util_Template::render('partials.top');
 	}
 
 	public function printFooter() {
-		sly_Util_Template::render('bottom');
+		sly_Util_Template::render('partials.bottom');
 		parent::printFooter();
 	}
 }

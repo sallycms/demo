@@ -1,13 +1,14 @@
 <?php
 /**
- * @sly name top
+ * @sly name partials.top
  */
 
-$self = sly_Core::getCurrentArticle();
-?>
-<div id="page" class="<?php print sly_Core::getCurrentArticle()->getType(); ?>">
-	<div id="container">
+$self       = sly_Core::getCurrentArticle();
+$keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null;
 
+?>
+<div id="page" class="<?php print $self->getType() ?>">
+	<div id="container">
 		<div id="topline">
 			<p>Das Sally CMS &ndash; gut bedienbare und professionelle Webseiten</p>
 			<ul>
@@ -17,20 +18,8 @@ $self = sly_Core::getCurrentArticle();
 			</ul>
 		</div>
 		<?php
-			if ($self->getType()=="start") {
-
-				$keyvisual   = $self->getMeta('keyvisual');
-				$resize      = sly_Util_AddOn::isAvailable('sallycms/image-resize');
-				$html_id     = count($keyvisual) != 1 ? 'id="keyvisual"' : "";
-
-				print '<div '.$html_id.'>';
-				$image_width = "905"; $image_height = "200";
-				$image_source = $resize ? 'imageresize/c'.$image_width.'w__c'.$image_height.'h__u__' : 'data/mediapool/';
-				foreach ($keyvisual as $media) {
-					print '<div><img src="'.$image_source.$media.'" alt="" /></div>';
-					$image_class = "";
-				}
-				print '</div>';
+			if (!empty($keyvisuals)) {
+				sly_Util_Template::render('partials.keyvisuals', compact('keyvisuals'));
 			}
 		?>
 		<div id="header">

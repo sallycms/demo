@@ -1,38 +1,28 @@
 <?php
 /**
- * @sly name newsList
- * @sly title News List
+ * @sly name   newsList
+ * @sly title  News-Beiträge auflisten
  */
 
-// Neue Liste erzeugen. Jede Liste benötigt einen eindeutigen Identifier, wenn
-// Feeds verwendet werden. Der Einfachheit kommt dabei die Slice-ID zum Einsatz
-$list = new Metalist_Frontend($slice->getSliceId());
+// Use a custom project helper class (develop/lib/Metalist), so we don't have
+// to talk with the metainfo addOn directly here (which can get kind of messy).
+$list = new Metalist();
 
-// Filter nach Kategorie (ID 12, rekursiv ja)
-// $list->filterByCategory(12, true);
+// only show articles matching these article types
+$list->filterByArticleTypes(array('news'));
 
-// Filter nach bestimmter Metainfo (nur für Metainfos mit select-Datentyp)
-// $list->filterByMetadata('mymetainfo', array('val1', 'val2'));
+// Only show N articles at most per page. If there are more available, a pager
+// will be generated.
+$list->setMaxArticles(3);
 
-// Filter nach Artikeltypen (ODER-Verkünpfung)
-$list->filterByArticleTypes(array('newsarticle'));
+// configure the pager template to use and show it below the list
+$list->setPagerTemplate('metalist.pager', false, true);
 
-// Setzt die Höchstanzahl von Artikeln. Werden mehr gefunden und ist ein
-// Pager-Template gesetzt, wird ein Pager angezeigt.
-$list->setMaxArticles(7);
-$list->setPagerTemplate('pager.sample', false, true);
-// Sendet die im Back End input definierten parameter zum Template.
-$list->setValue('show_preview', $values->get('preview'));
+// configure the template to use for the actual article list (the meat of this list)
+$list->setArticleTemplate('metalist.articles');
 
-// Das Template, das zur Anzeige der Artikel verwendet werden soll.
-$list->setArticleTemplate('meta.news');
+// set sorting
+$list->setSortDirection('desc');
 
-// Sortierung:
-//   Entweder über ein reguläres Artikelattribut (updatedate, createdate, name, ...).
-//   Oder über eine Metainfo. Dann muss der dritte Parameter true sein.
-//$list->setSorting('pos', 'ASC'); //HIER KANN DIE REIHENFOLGE DER ARTIKEL FESTGELEGT WERDEN! BEI NEWS SOLLEN zb. DIE NEUSTEN OBEN STEHEN!
-//$list->setSorting('mymetainfo', 'DESC', true);
-
-// Liste anzeigen
+// and finally show the list
 $list->show();
-?>
