@@ -1,7 +1,7 @@
 <?php
 /**
- * @sly name  standard
- * @sly slots {main: Hauptbereich}
+ * @sly name   standard
+ * @sly slots  {main: Hauptbereich}
  */
 
 FrontendHelper::getLayout();

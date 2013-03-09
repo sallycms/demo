@@ -1,7 +1,7 @@
 <?php
 /**
- * @sly name  wymeditor
- * @sly title Texteditor
+ * @sly name   wymeditor
+ * @sly title  Texteditor
  */
 
 $html = $values->get('html');

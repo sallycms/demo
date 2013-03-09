@@ -45,6 +45,26 @@ body {
 	}
 }
 
+#keyvisual {
+    position: relative;
+    width: 905px;
+    height: 220px;
+    border-bottom: 1px solid #ccc;
+
+	div {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    margin: 10px 0;
+	    right: 0px;
+	    bottom: 0px;
+	}
+
+	img {
+		border-radius: 5px;
+	}
+}
+
 #header {
 	position: relative;
 	margin-top: 65px;
@@ -125,14 +145,18 @@ body {
 		margin-right: 30px;
 	}
 
-	p:first-letter {
-		padding-left: 12px;
-		background: url(../images/bullet_square.png) left 4px no-repeat;
+	a {
+		color: #2d8393;
+
+		&:hover, &:active {
+			color: #3aa9bd;
+		}
 	}
 }
 
 #footer {
 	margin-top: 40px;
+	margin-left: 85px;
 	border-top: 1px solid #999;
 	height: 50px;
 	padding-top: 5px;

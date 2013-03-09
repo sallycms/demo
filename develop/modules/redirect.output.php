@@ -1,7 +1,7 @@
 <?php
 /**
- * @sly name  redirect
- * @sly title Weiterleitung
+ * @sly name   redirect
+ * @sly title  Weiterleitung
  */
 
 $url = trim($values->get('url'));

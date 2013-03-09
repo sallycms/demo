@@ -1,0 +1,10 @@
+syntax:glob
+sally/
+index.php
+LICENSE
+robots.txt
+composer.json
+composer.lock
+data/dyn/
+data/config
+data\import-export\.htaccess

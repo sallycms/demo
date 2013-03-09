@@ -1,7 +1,7 @@
 <?php
 /**
- * @sly name  twocolumn
- * @sly slots {left: Linke Spalte, right: Rechte Spalte}
+ * @sly name   twocolumn
+ * @sly slots  {left: Linke Spalte, right: Rechte Spalte}
  */
 
 FrontendHelper::getLayout();

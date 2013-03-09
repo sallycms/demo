@@ -67,7 +67,7 @@ class FrontendHelper {
 
 		$result = WV8_Settings::getValue($namespace, $key, $default);
 
-		if (in_array($key, array('imprint', 'contact', 'about'))) {
+		if (in_array($key, array('images', 'contact', 'about'))) {
 			if (!($result instanceof sly_Model_Article)) {
 				$art    = sly_Util_Article::findById($result);
 				$result = $art ? $art : sly_Core::getCurrentArticle();
