@@ -39,7 +39,7 @@ if (!empty($articles)) {
 			$date    = $date ? date('d.m.Y', $date) : '';
 			$url     = $article->getUrl($params);
 			$content = $article->getContent();
-			$teaser  = sly_Util_String::cutText($content, 250, ' <a href="'.$url.'">(zum Artikel)</a>');
+			$teaser  = sly_Util_String::cutText($content, 250, ' <a href="'.$url.'">&hellip; zum Artikel</a>');
 
 			?>
 			<li>

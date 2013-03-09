@@ -25,14 +25,6 @@
 		}
 	}
 
-	a {
-		color: #787373;
-
-		&:hover {
-			color: #2d8393;
-		}
-	}
-
 	.title {
 		font-family: Garamond, serif;
 		font-size: 20px;
@@ -41,9 +33,15 @@
 		color: #787373;
 
 		a {
+			color: #787373;
 			float: left;
 			width: 525px;
-			txt-align: justify;
+			text-align: justify;
+
+			&:hover {
+				color: #2d8393;
+				text-decoration: none;
+			}
 		}
 
 		span {
@@ -102,9 +100,19 @@
 		width: 624px;
 	}
 
+	h3 {
+		font-size: 15px;
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+
 	.content {
 		text-align: justify;
 		font-size: 10px;
+
+		p, li {
+			line-height: 16px;
+		}
 	}
 
 	.infos {

@@ -20,7 +20,7 @@ if ($be) {
 <div class="gallery">
 	<?php
 	if ($title) {
-		print '<h2>'.sly_html($title).'</h2>';
+		print '<h3>'.sly_html($title).'</h3>';
 	}
 
 	print '<ul class="images">';
@@ -42,8 +42,8 @@ if ($be) {
 		else {
 			?>
 			<li class="<?php print $className ?>">
-				<a class="fancybox" rel="<?php print $rel ?>" href="data/mediapool/<?php print $filename ?>">
-					<img src="<?php print $source ?>" alt="<?php print $title ?>" alt="<?php print $title ?>" />
+				<a class="fancybox" rel="<?php print $rel ?>" href="data/mediapool/<?php print $filename ?>" title="<?php print $title ?>">
+					<img src="<?php print $source ?>" alt="<?php print $title ?>" />
 				</a>
 			</li>
 			<?php

@@ -14,7 +14,7 @@ $keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null
 			<ul>
 				<li><a href="<?php echo FrontendHelper::getSetting('contact', $self)->getUrl() ?>">Kontakt</a></li>
 				<li><a href="<?php echo FrontendHelper::getSetting('about', $self)->getUrl() ?>">Über Sally</a></li>
-				<li><a href="<?php echo FrontendHelper::getSetting('imprint', $self)->getUrl() ?>">Impressum</a></li>
+				<li><a href="<?php echo FrontendHelper::getSetting('images', $self)->getUrl() ?>">Bildnachweise</a></li>
 			</ul>
 		</div>
 		<?php
