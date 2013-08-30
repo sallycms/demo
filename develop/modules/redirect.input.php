@@ -1,13 +1,7 @@
 <?php
 /**
- * Weiterleitungsmodul
- *
- * Dieses Modul demonstriert, dass innerhalb von Modulen auch problemlos
- * sly_Form verwendet werden kann, um einen einheitlichen Look der Formulare zu
- * erhalten.
- *
- * @sly name  redirect
- * @sly title Weiterleitung
+ * @sly name   redirect
+ * @sly title  Weiterleitung
  */
 ?>
 <p style="padding:5px 0">Bitte wählen Sie entweder einen Artikel aus Ihrer

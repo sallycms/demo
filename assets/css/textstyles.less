@@ -29,15 +29,15 @@ h2 {
 	font-size: 17px;
 	line-height: 24px;
 	display: block;
-	word-spacing: 4px;
+	word-spacing: 2px;
 	font-weight: bold;
 }
 
 h3 {
 	font-size: 21px;
 	line-height: 20px;
-	margin-bottom: 0;
-	word-spacing: 4px;
+	margin-bottom: 10px;
+	word-spacing: 2px;
 }
 
 h4 {
@@ -125,26 +125,25 @@ p, ul, ol, dl, img, blockquote {
 		border-width: 0px;
 	}
 
-
 	dl.image {
 		background-color: #eee;
-		}
+	}
 
 	dl.image dt, dl.image img {
 		margin: 0px;
 		padding: 0px;
-		}
+	}
 
 	dl.image dt {
 		float: none;
-		}
+	}
 
 	dl.image dd {
 		margin: 0px;
 		padding: 0px 5px 5px;
 		line-height: 20px;
 		font-size: 12px;
-		}
+	}
 
 	dl.left dd, dl.right dt {
 	/*	padding-top: 5px;*/
@@ -157,7 +156,7 @@ p, ul, ol, dl, img, blockquote {
 		margin: 20px 0px;
 		font-size: 12px;
 		text-align: left;
-		}
+	}
 
 	caption {
 		font-size: 14px;
@@ -169,22 +168,22 @@ p, ul, ol, dl, img, blockquote {
 
 	td, th {
 		padding: 0px 10px 0px 0px;
-		}
+	}
 
 	td {
 		line-height: 19px;
 		background-color: #eee;
 		border-bottom: 1px solid #ccc;
-		}
+	}
 
 	th {
 		line-height: 18px;
 		background-color: #ddd;
 		border-top: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
-		}
+	}
 
-		/*===== Lists =====*/
+	/*===== Lists =====*/
 
 	li {
 		line-height: 22px;
@@ -239,33 +238,29 @@ p, ul, ol, dl, img, blockquote {
 		margin-left: 125px;
 	}
 
-	a
-	{
+	a {
 		text-decoration: none;
-	}
-	ul {
-		display: inline;
-		width: 100px;
 	}
 }
 
 /*===== Links =====*/
 
-a
-{
+a {
 	text-decoration: none;
 	color: #787373;
-
 
 	&:hover {
 		text-decoration: none;
 		color: #3aa9bd;
 	}
 
-	&:active{ color: #3aa9bd; }
+	&:active {
+		color: #3aa9bd;
+	}
 }
 
 /*===== Text Styling =====*/
+
 small { font-size: 80%; }
 
 big { font-size: 130%; }

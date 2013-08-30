@@ -3,7 +3,25 @@ metainfo:
     page:
       title: alternativer Seitentitel
       datatype: stringline
-      params:
-        maxlength: 50
+      params: { maxlength: 50 }
       metapage: false
       types: [default, twocolumn]
+    author:
+      title: Autor
+      datatype: stringline
+      params:
+        maxlength: 50
+      helptext: Geben Sie hier Ihren Namen an.
+      metapage: false
+      types: [news]
+    date:
+      title: Datum
+      datatype: datetime
+      metapage: false
+      types: [news]
+    keyvisuals:
+      title: Keyvisual
+      datatype: medialist
+      params: { max: 100 }
+      metapage: false
+      types: [start]
