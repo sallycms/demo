@@ -3,7 +3,6 @@
  * @sly name partials.top
  */
 
-$self       = sly_Core::getCurrentArticle();
 $keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null;
 
 ?>
@@ -12,9 +11,9 @@ $keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null
 		<div id="topline">
 			<p>Das Sally CMS &ndash; gut bedienbare und professionelle Webseiten</p>
 			<ul>
-				<li><a href="<?php echo FrontendHelper::getSetting('contact', $self)->getUrl() ?>">Kontakt</a></li>
-				<li><a href="<?php echo FrontendHelper::getSetting('about', $self)->getUrl() ?>">Über Sally</a></li>
-				<li><a href="<?php echo FrontendHelper::getSetting('images', $self)->getUrl() ?>">Bildnachweise</a></li>
+				<li><a href="<?php print Settings::url('contact') ?>">Kontakt</a></li>
+				<li><a href="<?php print Settings::url('about') ?>">Über Sally</a></li>
+				<li><a href="<?php print Settings::url('images') ?>">Bildnachweise</a></li>
 			</ul>
 		</div>
 		<?php
@@ -23,8 +22,8 @@ $keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null
 			}
 		?>
 		<div id="header">
-			<a href="<?php echo FrontendHelper::getMainArticleURL() ?>" id="logo">
-				<img src="assets/images/logo.png" alt="<?php echo sly_html(sly_Core::getProjectName()) ?>" />
+			<a href="<?php print Project::getMainArticleURL() ?>" id="logo">
+				<img src="assets/images/logo.png" alt="<?php print sly_html(Project::getName()) ?>" />
 			</a>
 
 			<div id="claim">
@@ -34,4 +33,4 @@ $keyvisuals = $self->getType() === 'start' ? $self->getMeta('keyvisuals') : null
 		</div>
 
 		<div id="main">
-			<div id="navigation"><?php echo FrontendHelper::getNavigationHTML() ?></div>
+			<div id="navigation"><?php print Project::getNavigation()->getNavigationHTMLString() ?></div>

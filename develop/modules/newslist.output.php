@@ -6,7 +6,7 @@
 
 // Use a custom project helper class (develop/lib/Metalist), so we don't have
 // to talk with the metainfo addOn directly here (which can get kind of messy).
-$list = new Metalist();
+$list = sly_Core::getContainer()->get('project-metalist');
 
 // only show articles matching these article types
 $list->filterByArticleTypes(array('news'));

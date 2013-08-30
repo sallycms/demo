@@ -4,10 +4,19 @@
  * @sly slots  {main: Hauptbereich}
  */
 
-FrontendHelper::getLayout();
+// init the DI container; $article is predefined by Sally to be the requested article.
+$container = Project::init($article);
+$layout    = $container['sly-layout'];
+
+// open the layout buffer
+$layout->start();
+
+// no we can print our content
 ?>
 <div id="content">
-	<?php echo $article->getContent('main') ?>
+	<?php print $article->getContent('main') ?>
 </div>
 <?php
-FrontendHelper::printFooter();
+
+// close the buffer (capture the output) and render everything
+$layout->end();

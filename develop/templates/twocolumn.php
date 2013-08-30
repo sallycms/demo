@@ -4,11 +4,19 @@
  * @sly slots  {left: Linke Spalte, right: Rechte Spalte}
  */
 
-FrontendHelper::getLayout();
+// init the DI container; $article is predefined by Sally to be the requested article.
+$container = Project::init($article);
+$layout    = $container['sly-layout'];
+
+// open the layout buffer
+$layout->start();
+
 ?>
 <div id="content">
-	<div class="left"><?php echo $article->getContent('left') ?></div>
-	<div class="right"><?php echo $article->getContent('right') ?></div>
+	<div class="left"><?php print $article->getContent('left') ?></div>
+	<div class="right"><?php print $article->getContent('right') ?></div>
 </div>
 <?php
-FrontendHelper::printFooter();
+
+// close the buffer (capture the output) and render everything
+$layout->end();

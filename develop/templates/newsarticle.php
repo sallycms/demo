@@ -5,6 +5,10 @@
  * @sly slots  {main: Hauptbereich}
  */
 
+// init the DI container; $article is predefined by Sally to be the requested article.
+$container = Project::init($article);
+$layout    = $container['sly-layout'];
+
 // add additional CSS code
 FrontendHelper::getLayout()->addCSSFile('assets/css/newslist.less');
 
@@ -39,7 +43,8 @@ foreach ($allNews as $newsArticle) {
 	}
 }
 
-FrontendHelper::getLayout();
+$layout->start();
+
 ?>
 <div id="content" class="news-article">
 	<h2><?php print sly_html($name) ?></h2>
@@ -81,4 +86,6 @@ FrontendHelper::getLayout();
 	</div>
 </div>
 <?php
-FrontendHelper::printFooter();
+
+// close the buffer (capture the output) and render everything
+$layout->end();

@@ -9,12 +9,23 @@
  */
 
 class Metalist {
-	protected $articleTypes    = array();
-	protected $maxArticles     = PHP_INT_MAX;
-	protected $direction       = 'DESC';
-	protected $articleTemplate = '';
-	protected $pagerTemplate   = '';
-	protected $pagerPositions  = array('top' => false, 'bottom' => false);
+	protected $tplService;
+	protected $articleTypes;
+	protected $maxArticles;
+	protected $direction;
+	protected $articleTemplate;
+	protected $pagerTemplate;
+	protected $pagerPositions;
+
+	public function __construct(sly_Service_Template $service) {
+		$this->tplService      = $service;
+		$this->articleTypes    = array();
+		$this->maxArticles     = PHP_INT_MAX;
+		$this->direction       = 'DESC';
+		$this->articleTemplate = '';
+		$this->pagerTemplate   = '';
+		$this->pagerPositions  = array('top' => false, 'bottom' => false);
+	}
 
 	public function filterByArticleTypes($types) {
 		$this->articleTypes = sly_makeArray($types);
@@ -28,9 +39,7 @@ class Metalist {
 
 	public function setArticleTemplate($template) {
 		if (!empty($template)) {
-			$service = sly_Service_Factory::getTemplateService();
-
-			if (!$service->exists($template)) {
+			if (!$this->tplService->exists($template)) {
 				trigger_error('Contentproblem: Nicht vorhandenes Artikeltemplate in Metalist ausgewählt.', E_USER_WARNING);
 			}
 			else {
@@ -43,9 +52,7 @@ class Metalist {
 
 	public function setPagerTemplate($template, $top = true, $bottom = true) {
 		if (!empty($template)) {
-			$service = sly_Service_Factory::getTemplateService();
-
-			if (!$service->exists($template)) {
+			if (!$this->tplService->exists($template)) {
 				trigger_error('Contentproblem: Nicht vorhandenes Pagertemplate in Metalist ausgewählt.', E_USER_WARNING);
 			}
 			else {
@@ -87,10 +94,8 @@ class Metalist {
 	}
 
 	protected function printList(array $articles, array $pagerConfig) {
-		$service = sly_Service_Factory::getTemplateService();
-
 		$this->includePager('top', $pagerConfig);
-		$service->includeFile($this->articleTemplate, compact('articles'));
+		$this->tplService->includeFile($this->articleTemplate, compact('articles'));
 		$this->includePager('bottom', $pagerConfig);
 	}
 
@@ -127,8 +132,7 @@ class Metalist {
 		if (!empty($config) && $this->pagerTemplate && $this->pagerPositions[$pos]) {
 			$config['pos'] = $pos;
 
-			$service = sly_Service_Factory::getTemplateService();
-			$service->includeFile($this->pagerTemplate, $config);
+			$this->tplService->includeFile($this->pagerTemplate, $config);
 		}
 	}
 }

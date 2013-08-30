@@ -9,29 +9,22 @@
  */
 
 class DemoLayout extends sly_Layout_XHTML5 {
-	protected $article = null;
+	protected $article;
 
-	public function __construct() {
-		//////////////////////////////////////////////////////////////////
-		// Zeitzone sollte auch im Frontend gesetzt werden (PHP 5.1+)
+	public function __construct(sly_Model_Article $curArticle, sly_Util_Navigation $navigation) {
+		// remember the current article for later
 
-		date_default_timezone_set(sly_Core::getTimezone());
+		$this->article = $curArticle;
 
-		//////////////////////////////////////////////////////////////////
-		// Seitentitel setzen
+		// determine page title
 
-		$pathString = FrontendHelper::getNavigation()->getBreadcrumbs();
-		$title      = $pathString ? $pathString : sly_Core::getCurrentArticle()->getName();
+		$this->setTitle($navigation->getBreadcrumbs() ?: $curArticle->getName());
 
-		$this->setTitle($title);
-
-		//////////////////////////////////////////////////////////////////
-		// Meta- und HTTP-Meta-Angaben setzen
+		// add some meta information
 
 		$this->addMeta('robots', 'index, follow, noodp');
 		$this->setLanguage('de_DE');
 
-		//////////////////////////////////////////////////////////////////
 		// CSS
 
 		$this->addCSSFile('assets/css/textstyles.less');
@@ -40,7 +33,6 @@ class DemoLayout extends sly_Layout_XHTML5 {
 
 		// $this->addCSS('body { magin-top: 20px; }');
 
-		//////////////////////////////////////////////////////////////////
 		// JavaScript
 
 		// falls Scripts direkt vor dem schließenden </body> Tag ausgegeben werden sollen (anstatt im <head>)
@@ -51,28 +43,24 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		$this->addJavaScriptFile('assets/js/main.js');
 
 		// $this->addJavaScript('var x = 10;');
+	}
 
-		//////////////////////////////////////////////////////////////////
-		// Deployer-Integration
+	public function start() {
+		$this->openBuffer();
+	}
 
-		if (class_exists('WV5_Deployment')) {
-			// nicht komprimieren, falls im Entwicklermodus
-			$compression = sly_Core::isDeveloperMode() ? WV5_Deployer_JavaScript::COMPRESSION_NONE : WV5_Deployer_JavaScript::COMPRESSION_GOOGLE;
-
-			WV5_Deployment::useTimeStamp(true);
-			WV5_Deployment::setCSSIndices(array('default', 'IF lt IE 7'));
-			WV5_Deployment::setJSIndices(array('frameworks', 'default'));
-			WV5_Deployment::setJSCompressionMode($compression);
-		}
+	public function end() {
+		$this->closeBuffer();
+		print $this->render();
 	}
 
 	public function printHeader() {
 		parent::printHeader();
-		sly_Util_Template::render('partials.top');
+		sly_Util_Template::render('partials.top', array('self' => $this->article));
 	}
 
 	public function printFooter() {
-		sly_Util_Template::render('partials.bottom');
+		sly_Util_Template::render('partials.bottom', array('self' => $this->article));
 		parent::printFooter();
 	}
 }

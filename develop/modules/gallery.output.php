@@ -6,10 +6,10 @@
 
 $title  = $values->get('title');
 $images = $values->getMedia('images'); // takes all selected images, checks their existence and wraps then in sly_Model_Medium objects
-$resize = sly_Util_AddOn::isAvailable('sallycms/image-resize');
+$resize = Project::hasAddOn('sallycms/image-resize');
 $be     = sly_Core::isBackend();
 $size   = $be ? 128 : 152;
-$prefix = $resize ? sprintf('imageresize/c%dw__c%dh__', $size, $size) : 'data/mediapool/';
+$prefix = $resize ? sprintf('mediapool/resize/c%dw__c%dh__', $size, $size) : 'mediapool/';
 $rel    = 'gallery_'.uniqid();
 
 if ($be) {
@@ -42,7 +42,7 @@ if ($be) {
 		else {
 			?>
 			<li class="<?php print $className ?>">
-				<a class="fancybox" rel="<?php print $rel ?>" href="data/mediapool/<?php print $filename ?>" title="<?php print $title ?>">
+				<a class="fancybox" rel="<?php print $rel ?>" href="mediapool/<?php print $filename ?>" title="<?php print $title ?>">
 					<img src="<?php print $source ?>" alt="<?php print $title ?>" />
 				</a>
 			</li>
@@ -55,7 +55,7 @@ if ($be) {
 	// show the extender in frontend if more than 8 images have been added
 	if (!$be) {
 		// add additional CSS code
-		FrontendHelper::getLayout()->addCSSFile('assets/css/gallery.less');
+		Project::getLayout()->addCSSFile('assets/css/gallery.less');
 
 		$total = count($images);
 
