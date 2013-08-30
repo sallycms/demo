@@ -13,7 +13,7 @@
  */
 
 $ckeditor = new sly_Form_CKEditor('ckeditor', 'Texteditor', $values->get('ckeditor'));
-
+$ckeditor->useFullWidth();
 /*
  * load custom styleset
  *
@@ -30,12 +30,6 @@ $ckeditor = new sly_Form_CKEditor('ckeditor', 'Texteditor', $values->get('ckedit
  * set single configuration value
  *
  * $ckeditor->setConfigValue('forcePasteAsPlainText', true);
- */
-
-/*
- * use full width
- *
- * $ckeditor->useFullWidth();
  */
 
 $form->add($ckeditor);
