@@ -21,8 +21,8 @@ usort($articles, function($a, $b) {
 	return $a->getPosition() - $b->getPosition();
 });
 
-// show the most recent 3 articles
+// show the 5 most recent articles
 
 $tplService->includeFile('metalist.articles', array(
-	'articles' => array_slice($articles, 0, 3)
+	'articles' => array_slice($articles, 0, 5)
 ));
