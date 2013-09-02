@@ -1,4 +1,7 @@
-@charset "utf-8";
+@charset 'utf-8';
+
+// mixins.less is from Sally
+// and can be found in sally/vendor/sallycms/less-mixins/mixins.less
 @import 'mixins.less';
 
 .global-reset;
@@ -146,7 +149,7 @@ p, ul, ol, dl, img, blockquote {
 	}
 
 	dl.left dd, dl.right dt {
-	/*	padding-top: 5px;*/
+		/*	padding-top: 5px;*/
 	}
 
 
@@ -261,13 +264,21 @@ a {
 
 /*===== Text Styling =====*/
 
-small { font-size: 80%; }
+small {
+	font-size: 80%;
+}
 
-big { font-size: 130%; }
+big {
+	font-size: 130%;
+}
 
-strong { font-weight: bold; }
+strong {
+	font-weight: bold;
+}
 
-em { font-style: italic; }
+em {
+	font-style: italic;
+}
 
 sup {
 	font-size: 10px;
@@ -280,7 +291,10 @@ sub {
 }
 
 /*===== Images =====*/
-img { border-width: 0px; }
+
+img {
+	border-width: 0px;
+}
 
 img.left {
 	padding-right: 5px;
@@ -290,9 +304,12 @@ img.right {
 	padding-left: 5px;
 }
 
-
 /*===== Insertions =====*/
 
-.left { float: left; }
+.left {
+	float: left;
+}
 
-.right { float: right; }
+.right {
+	float: right;
+}
