@@ -30,56 +30,6 @@ class Settings {
 	}
 
 	/**
-	 * get file
-	 *
-	 * @param  string $key
-	 * @param  string $namespace
-	 * @param  string $type      'model', 'file' for the basename, 'full' for the file path,
-	 *                           'uri' for the file's HTTP uri or
-	 *                           an image-resize prefix to use (implies uri return type)
-	 * @param  mixed  $default
-	 * @return mixed
-	 */
-	public static function file($key, $namespace = 'project', $type = 'model', $default = null) {
-		$filename = self::get($key, $namespace);
-		return $filename ? self::evalFileRetType($filename, $type, $default) : $default;
-	}
-
-	/**
-	 * get email, possibly spam-protected
-	 *
-	 * @param  string  $key
-	 * @param  string  $namespace
-	 * @param  boolean $spamProtected  whether or not to spam-protect the mail; generates HTML
-	 * @param  string  $default
-	 * @return string
-	 */
-	public static function email($key, $namespace = 'project', $spamProtected = true, $default = null) {
-		$email = self::get($key, $namespace);
-
-		// we can't do anything useful in this case
-		if (!$email && empty($default)) {
-			return $default;
-		}
-
-		if ($email) {
-			if ($spamProtected) {
-				if (class_exists('WV_Mail')) {
-					return WV_Mail::getSpamProtectedMail($email);
-				}
-
-				trigger_error('Could not spam-protected email, WV_Mail is missing.', E_USER_WARNING);
-			}
-
-			return $email;
-		}
-
-		$isProtected = $default[0] === '<';
-
-		return $isProtected ? $default : ($spamProtected ? WV_Mail::getSpamProtectedMail($default) : $default);
-	}
-
-	/**
 	 * get article model
 	 *
 	 * @param  string $key

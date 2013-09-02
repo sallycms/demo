@@ -9,8 +9,8 @@ article_types:
   twocolumn:
     title: Zweispaltige Seite
     template: twocolumn
-    modules: [image, redirect, wymeditor]
+    modules: [image, redirect, ckeditor]
   news:
     title: News-Beitrag
     template: newsarticle
-    modules: [image, wymeditor]
+    modules: [image, ckeditor]

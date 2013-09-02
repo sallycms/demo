@@ -8,8 +8,10 @@
  *
  * http://www.opensource.org/licenses/mit-license.php
  *
- * @sly name ckeditor
+ * @sly name   ckeditor
+ * @sly title  Texteditor
  */
-
 ?>
-<div class="ckeditor"><?php print Project::processRichtext($values->get('ckeditor')) ?></div>
+<div class="ckeditor">
+	<?php print Project::processRichtext($values->get('ckeditor')) ?>
+</div>

@@ -8,12 +8,13 @@
  *
  * http://www.opensource.org/licenses/mit-license.php
  *
- * @sly name ckeditor
- * @sly title Texteditor (CKEditor)
+ * @sly name   ckeditor
+ * @sly title  Texteditor
  */
 
 $ckeditor = new sly_Form_CKEditor('ckeditor', 'Texteditor', $values->get('ckeditor'));
 $ckeditor->useFullWidth();
+
 /*
  * load custom styleset
  *

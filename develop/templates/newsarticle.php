@@ -1,7 +1,6 @@
 <?php
 /**
  * @sly name   newsarticle
- * @sly title  News Artikel
  * @sly slots  {main: Hauptbereich}
  */
 
@@ -10,9 +9,11 @@ $container = Project::init($article);
 $layout    = $container['sly-layout'];
 
 // add additional CSS code
-FrontendHelper::getLayout()->addCSSFile('assets/css/newslist.less');
+$layout->addCSSFile('assets/css/newslist.less');
 
-$origin   = sly_get('origin', 'int', 0);
+// get some info about the current article
+
+$origin   = sly_get('origin', 'int', 0); // is a shortcut for $container['sly-request']->get('origin', 'int', 0)
 $artID    = $article->getId();
 $name     = $article->getName();
 $content  = $article->getContent();
@@ -25,11 +26,20 @@ $nextLink = null;
 $prevLink = null;
 
 // use the developer-utils' generic filter system to select all sibling news articles
-$allNews  = WV_Sally::filterArticles(new WV_Filter_And(
+
+$filter = new WV_Filter_And(
 	new WV_Filter_Article_CategoryID($catID),
 	new WV_Filter_Article_Type('news'),
 	new WV_Filter_Article_Online()
-), 'article.catpos', 'ASC');
+);
+
+$comparator = function($a, $b) {
+	return $a->getPosition() - $b->getPosition();
+};
+
+$allNews = WV_Filter::filterArticles($filter, $comparator);
+
+// determine next and prev link
 
 foreach ($allNews as $newsArticle) {
 	$pos = $newsArticle->getPosition();

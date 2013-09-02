@@ -4,25 +4,25 @@
  * @sly title  News-Beiträge auflisten
  */
 
-// Use a custom project helper class (develop/lib/Metalist), so we don't have
-// to talk with the metainfo addOn directly here (which can get kind of messy).
-$list = sly_Core::getContainer()->get('project-metalist');
+// get the services we need
 
-// only show articles matching these article types
-$list->filterByArticleTypes(array('news'));
+$container  = sly_Core::getContainer();
+$artService = $container['sly-service-article'];
+$tplService = $container['sly-service-template'];
+$clang      = $container['sly-current-lang-id']; // == sly_Core::getCurrentClang()
 
-// Only show N articles at most per page. If there are more available, a pager
-// will be generated.
-$list->setMaxArticles(3);
+// find all *online* news articles
 
-// configure the pager template to use and show it below the list
-$list->setPagerTemplate('metalist.pager', false, true);
+$articles = $artService->findArticlesByType('news', $clang, true);
 
-// configure the template to use for the actual article list (the meat of this list)
-$list->setArticleTemplate('metalist.articles');
+// sort the articles by their metadata (from newest to oldest)
 
-// set sorting
-$list->setSortDirection('desc');
+usort($articles, function($a, $b) {
+	return $a->getPosition() - $b->getPosition();
+});
 
-// and finally show the list
-$list->show();
+// show the most recent 3 articles
+
+$tplService->includeFile('metalist.articles', array(
+	'articles' => array_slice($articles, 0, 3)
+));
