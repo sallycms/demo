@@ -1,0 +1,32 @@
+# Copy this file to develop/config
+
+ckeditor:
+
+    # Styleset configuration
+    #
+    # Styles are used to apply inline CSS-styles to elements
+    # and will be provided through the styles menu of the editor.
+
+    #styleset:
+    #    default:
+    #        - { name: 'Blue Title', element: 'h2', styles: { 'color': 'Blue' } }
+    #        - { name: 'Red Title' , element: 'h3', styles: { 'color': 'Red' } }
+    #        - { name: 'CSS Style', element: 'span', attributes: { 'class': 'my_style' } }
+    #        - { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } }
+
+    # Custom configuration
+    #
+    # Editors can load custom configurations through the
+    # setConfig method in a module. For all available config
+    # options please consider the ckeditor documentation.
+
+    #config:
+    #    custom:
+    #        height: 350
+    #        forcePasteAsPlainText: true
+    #        toolbarCanCollapse: false
+    #        toolbar:
+    #            - ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat']
+    #            - ['NumberedList', 'BulletedList']
+    #            - ['Undo', 'Redo']
+    #            - ['Maximize']

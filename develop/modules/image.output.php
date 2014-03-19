@@ -4,16 +4,14 @@
  * @sly title Bild
  */
 
-$image  = $values->get('image');
+$image  = $values->getMedium('image');
 $resize = sly_Util_AddOn::isAvailable('sallycms/image-resize');
 $prefix = sly_Core::isBackend() ? '../' : '';
 
-if ($image): ?>
-<div class="image">
-	<?php if ($resize): ?>
-	<img src="<?php echo $prefix ?>imageresize/310w__181h__<?php echo $image ?>" alt="" />
-	<?php else: ?>
-	<img src="<?php echo $prefix ?>data/mediapool/<?php echo $image ?>" alt="" />
-	<?php endif ?>
-</div>
-<?php endif ?>
+if ($image) {
+	$url = $resize ? $image->resize(array('width' => 310, 'height' => 181)) : 'mediapool/'.$image->getFileName();
+?>
+	<div class="image">
+		<img src="<?php echo $prefix . $url ?>" alt="<?php echo $image->getTitle() ?>" />
+	</div>
+<?php } ?>

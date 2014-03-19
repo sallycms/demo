@@ -9,8 +9,6 @@
  */
 
 class DemoLayout extends sly_Layout_XHTML5 {
-	protected $article = null;
-
 	public function __construct() {
 		//////////////////////////////////////////////////////////////////
 		// Zeitzone sollte auch im Frontend gesetzt werden (PHP 5.1+)
@@ -48,19 +46,6 @@ class DemoLayout extends sly_Layout_XHTML5 {
 		$this->addJavaScriptFile('assets/js/jquery.min.js', 'frameworks');
 
 		// $this->addJavaScript('var x = 10;');
-
-		//////////////////////////////////////////////////////////////////
-		// Deployer-Integration
-
-		if (class_exists('WV5_Deployment')) {
-			// nicht komprimieren, falls im Entwicklermodus
-			$compression = sly_Core::isDeveloperMode() ? WV5_Deployer_JavaScript::COMPRESSION_NONE : WV5_Deployer_JavaScript::COMPRESSION_GOOGLE;
-
-			WV5_Deployment::useTimeStamp(true);
-			WV5_Deployment::setCSSIndices(array('default', 'IF lt IE 7'));
-			WV5_Deployment::setJSIndices(array('frameworks', 'default'));
-			WV5_Deployment::setJSCompressionMode($compression);
-		}
 	}
 
 	public function printHeader() {
