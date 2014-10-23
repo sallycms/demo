@@ -9,52 +9,58 @@
  */
 
 class DemoLayout extends sly_Layout_XHTML5 {
-	public function __construct() {
-		//////////////////////////////////////////////////////////////////
-		// Zeitzone sollte auch im Frontend gesetzt werden (PHP 5.1+)
+	protected $article;
 
-		date_default_timezone_set(sly_Core::getTimezone());
+	public function __construct(sly_Model_Article $curArticle, sly_Util_Navigation $navigation) {
+		// remember the current article for later
 
-		//////////////////////////////////////////////////////////////////
-		// Seitentitel setzen
+		$this->article = $curArticle;
 
-		$pathString = FrontendHelper::getNavigation()->getBreadcrumbs();
-		$title      = $pathString ? $pathString : sly_Core::getCurrentArticle()->getName();
+		// determine page title
 
-		$this->setTitle($title);
+		$this->setTitle($navigation->getBreadcrumbs() ?: $curArticle->getName());
 
-		//////////////////////////////////////////////////////////////////
-		// Meta- und HTTP-Meta-Angaben setzen
+		// add some meta information
 
 		$this->addMeta('robots', 'index, follow, noodp');
 		$this->setLanguage('de_DE');
 
-		//////////////////////////////////////////////////////////////////
 		// CSS
 
 		$this->addCSSFile('assets/css/textstyles.less');
 		$this->addCSSFile('assets/css/main.less');
+		$this->addCSSFile('assets/css/jquery.fancybox.css');
 
 		// $this->addCSS('body { magin-top: 20px; }');
 
-		//////////////////////////////////////////////////////////////////
 		// JavaScript
 
 		// falls Scripts direkt vor dem schließenden </body> Tag ausgegeben werden sollen (anstatt im <head>)
 		// $this->putJavaScriptAtBottom();
 
 		$this->addJavaScriptFile('assets/js/jquery.min.js', 'frameworks');
+		$this->addJavaScriptFile('assets/js/jquery.fancybox.pack.js', 'frameworks');
+		$this->addJavaScriptFile('assets/js/main.js');
 
 		// $this->addJavaScript('var x = 10;');
 	}
 
+	public function start() {
+		$this->openBuffer();
+	}
+
+	public function end() {
+		$this->closeBuffer();
+		print $this->render();
+	}
+
 	public function printHeader() {
 		parent::printHeader();
-		sly_Util_Template::render('top');
+		sly_Util_Template::render('partials.top', array('self' => $this->article));
 	}
 
 	public function printFooter() {
-		sly_Util_Template::render('bottom');
+		sly_Util_Template::render('partials.bottom', array('self' => $this->article));
 		parent::printFooter();
 	}
 }

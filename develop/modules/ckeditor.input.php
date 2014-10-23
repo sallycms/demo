@@ -8,11 +8,12 @@
  *
  * http://www.opensource.org/licenses/mit-license.php
  *
- * @sly name ckeditor
- * @sly title Texteditor (CKEditor)
+ * @sly name   ckeditor
+ * @sly title  Texteditor
  */
 
-$ckeditor = new sly_Form_CKEditor('html', 'Texteditor', $values->get('html'));
+$ckeditor = new sly_Form_CKEditor('ckeditor', 'Texteditor', $values->get('ckeditor'));
+$ckeditor->useFullWidth();
 
 /*
  * load custom styleset
@@ -31,11 +32,5 @@ $ckeditor = new sly_Form_CKEditor('html', 'Texteditor', $values->get('html'));
  *
  * $ckeditor->setConfigValue('forcePasteAsPlainText', true);
  */
-
-/*
- * use full width
- */
-$ckeditor->useFullWidth();
-
 
 $form->add($ckeditor);

@@ -1,4 +1,7 @@
-@charset "utf-8";
+@charset 'utf-8';
+
+// mixins.less is from Sally
+// and can be found in sally/vendor/sallycms/less-mixins/mixins.less
 @import 'mixins.less';
 
 .global-reset;
@@ -7,7 +10,7 @@
 @import 'textstyles.less';
 
 body {
-	background: url("../images/background.png") repeat-x 0 0 #b1b3b1;
+	background: url('../images/background.png') repeat-x 0 0 #b1b3b1;
 	margin: 0;
 }
 
@@ -47,6 +50,26 @@ body {
 
 	a:active, a:hover {
 		color: #3aa9bd;
+	}
+}
+
+#keyvisual {
+    position: relative;
+    width: 905px;
+    height: 220px;
+    border-bottom: 1px solid #ccc;
+
+	div {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    margin: 10px 0;
+	    right: 0px;
+	    bottom: 0px;
+	}
+
+	img {
+		border-radius: 5px;
 	}
 }
 
@@ -130,14 +153,18 @@ body {
 		margin-right: 30px;
 	}
 
-	p:first-letter {
-		padding-left: 12px;
-		background: url(../images/bullet_square.png) left 4px no-repeat;
+	a {
+		color: #2d8393;
+
+		&:hover, &:active {
+			color: #3aa9bd;
+		}
 	}
 }
 
 #footer {
 	margin-top: 40px;
+	margin-left: 85px;
 	border-top: 1px solid #999;
 	height: 50px;
 	padding-top: 5px;

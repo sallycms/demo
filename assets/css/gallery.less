@@ -1,0 +1,70 @@
+@charset 'utf-8';
+
+// mixins.less is from Sally
+// and can be found in sally/vendor/sallycms/less-mixins/mixins.less
+@import 'mixins.less';
+
+#content .gallery {
+	overflow: hidden;
+	width: auto;
+	margin: 0 auto;
+	margin-bottom: 10px;
+
+	.images {
+		.clearfix;
+		display: block;
+		width: 100%;
+	}
+
+	li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		line-height: 0;
+		float: left;
+
+		&.bottom {
+			display: none;
+		}
+	}
+
+	img {
+		margin: 0;
+		padding: 5.25px;
+	}
+
+	.footer {
+		margin-top: 10px;
+		text-align: center;
+		border-top: 1px solid #ccc;
+
+		p {
+			padding-top: 10px;
+
+			&:first-letter {
+				background: none;
+			}
+
+			&.extend {
+				font-size: 20px;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../images/fancybox_sprite.png') !important;
+}
+
+#fancybox-loading div {
+	background: url('../images/fancybox_loading.gif') center center no-repeat !important;
+}
+
+.fancybox-nav {
+	background: transparent url('../images/blank.gif') !important; /* helps IE */
+}
+
+.fancybox-overlay {
+	background: url('../images/fancybox_overlay.png') !important;
+}

@@ -1,17 +1,25 @@
 <?php
 /**
- * @sly name  image
- * @sly title Bild
+ * @sly name   image
+ * @sly title  Bild
  */
 
 $image  = $values->getMedium('image');
-$resize = sly_Util_AddOn::isAvailable('sallycms/image-resize');
 $prefix = sly_Core::isBackend() ? '../' : '';
 
-if ($image) {
-	$url = $resize ? $image->resize(array('width' => 310, 'height' => 181)) : 'mediapool/'.$image->getFileName();
+// We can simply return and end the module in case there is no image selected.
+if (!$image) {
+	return;
+}
+
+if (Project::hasAddOn('sallycms/image-resize')) {
+	$url = 'mediapool/resize/310w__181h__'.$image->getFilename();
+}
+else {
+	$url = 'mediapool/'.$image->getFilename();
+}
+
 ?>
-	<div class="image">
-		<img src="<?php echo $prefix . $url ?>" alt="<?php echo $image->getTitle() ?>" />
-	</div>
-<?php } ?>
+<div class="image">
+	<img src="<?php print $prefix.$url ?>" alt="<?php print sly_html($image->getTitle()) ?>" title="<?php print sly_html($image->getTitle()) ?>" />
+</div>

@@ -1,6 +1,6 @@
 global_settings:
-  imprint:
-    title: Impressum
+  images:
+    title: Bildnachweise
     pagename: Einstellungen
     datatype: linkbutton
     group: Footerlinks
