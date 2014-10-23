@@ -36,16 +36,16 @@
         "sallycms/setup": "0.9.*@dev",
         "knplabs/gaufrette": "0.2.*@dev",
 
-        "sallycms/be-search": "~2.0@dev",
-        "sallycms/import-export": "~4.0@dev",
-        "sallycms/image-resize": "~4.0@dev",
-
-        "webvariants/developer-utils": "~6.0@dev",
-        "webvariants/metainfo": ">=6.0@dev",
-        "webvariants/global-settings": "~6.0@dev",
-        "webvariants/realurl2": "~5.0@dev",
-        "webvariants/redirect": "dev-master",
-        "mediastuttgart/ckeditor": "2.4.*@dev"
+        "mediastuttgart/ckeditor": "~2.4.2",
+        "sallycms/be-search": "~2.0.0",
+        "sallycms/image-resize": "~4.0.0",
+        "sallycms/import-export": "~4.0.0",
+        "webvariants/developer-utils": "~6.0.0",
+        "webvariants/global-settings": "~6.0.0",
+        "webvariants/metainfo": "~6.0.0",
+        "webvariants/realurl2": "~5.0.0",
+        "webvariants/rbac": "~0.7.0",
+        "webvariants/rbac-treeview": "~0.5.0"
     },
     "suggest": {
         "sallycms/be-search": "Provides more fine grained navigation option for the backend.",
