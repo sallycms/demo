@@ -9,7 +9,7 @@
     ],
     "authors": [
         {
-            "name": "webvariants GbR",
+            "name": "webvariants GmbH & Co. KG",
             "homepage": "http://www.webvariants.de/"
         }
     ],
@@ -59,7 +59,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-default": "0.9.x-dev"
+            "dev-default": "0.10.x-dev"
         }
     },
     "scripts": {
