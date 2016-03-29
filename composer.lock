@@ -1,22 +1,24 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "d5142a8a8034874128916f85733f26de",
+    "hash": "3b22c38c26d3f65217f6b6388ba7f31f",
+    "content-hash": "b2883b32a7256f468ee7fef95738ec92",
     "packages": [
         {
             "name": "knplabs/gaufrette",
-            "version": "dev-master",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/Gaufrette.git",
-                "reference": "338febb0137b971152363fe184cfb6f01871e665"
+                "reference": "1696386ca66f2f046dea7892cf1f85fd82b5b68e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/338febb0137b971152363fe184cfb6f01871e665",
-                "reference": "338febb0137b971152363fe184cfb6f01871e665",
+                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/1696386ca66f2f046dea7892cf1f85fd82b5b68e",
+                "reference": "1696386ca66f2f046dea7892cf1f85fd82b5b68e",
                 "shasum": ""
             },
             "require": {
@@ -27,13 +29,13 @@
                 "aws/aws-sdk-php": "~2",
                 "doctrine/dbal": ">=2.3",
                 "dropbox-php/dropbox-php": "*",
+                "google/apiclient": "~1.1.3",
                 "herzult/php-ssh": "*",
                 "microsoft/windowsazure": "dev-master",
                 "mikey179/vfsstream": "~1.2.0",
-                "phpseclib/phpseclib": "dev-master",
+                "phpseclib/phpseclib": "^2.0",
                 "phpspec/phpspec": "2.0.*",
                 "phpunit/phpunit": "3.7.*",
-                "rackspace/php-cloudfiles": "*",
                 "rackspace/php-opencloud": "1.9.*"
             },
             "suggest": {
@@ -43,20 +45,21 @@
                 "dropbox-php/dropbox-php": "to use the Dropbox adapter",
                 "ext-apc": "to use the APC adapter",
                 "ext-curl": "*",
-                "ext-fileinfo": "This extension is used to automatically detect the content-type of a file in the AwsS3, OpenCloud, and AzureBlogStorage adapters",
+                "ext-fileinfo": "This extension is used to automatically detect the content-type of a file in the AwsS3, OpenCloud, AzureBlogStorage and GoogleCloudStorage adapters",
                 "ext-mbstring": "*",
                 "ext-mongo": "*",
                 "ext-zip": "to use the Zip adapter",
+                "google/apiclient": "to use GoogleCloudStorage adapter",
                 "herzult/php-ssh": "to use SFtp adapter",
                 "knplabs/knp-gaufrette-bundle": "to use with Symfony2",
                 "microsoft/windowsazure": "to use Microsoft Azure Blob Storage adapter",
-                "phpseclib/phpseclib": "to user PhpseclibSftp adapter",
+                "phpseclib/phpseclib": "to use PhpseclibSftp adapter",
                 "rackspace/php-opencloud": "to use Opencloud adapter"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2.x-dev"
+                    "dev-master": "0.4.x-dev"
                 }
             },
             "autoload": {
@@ -86,7 +89,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2014-03-05 19:58:17"
+            "time": "2016-03-03 09:36:22"
         },
         {
             "name": "leafo/lessphp",
@@ -131,31 +134,31 @@
         },
         {
             "name": "mediastuttgart/ckeditor",
-            "version": "2.4.x-dev",
+            "version": "v4.1.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/mediastuttgart/ckeditor/",
-                "reference": "1fc96e562839ecd99b8921d027d6a5a684046328"
+                "reference": "5aca0e6c1485b81b27b6ca668ea3316819b70403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/mediastuttgart/ckeditor/get/1fc96e562839ecd99b8921d027d6a5a684046328.zip",
-                "reference": "1fc96e562839ecd99b8921d027d6a5a684046328",
+                "url": "https://bitbucket.org/mediastuttgart/ckeditor/get/5aca0e6c1485b81b27b6ca668ea3316819b70403.zip",
+                "reference": "5aca0e6c1485b81b27b6ca668ea3316819b70403",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.7,<0.10"
+                "sallycms/sallycms": ">=0.7,<0.11"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "2.x-dev",
+                    "version": "4.1.0",
                     "imex-ignore": true
                 },
                 "branch-alias": {
-                    "dev-default": "2.x-dev"
+                    "dev-default": "4.x-dev"
                 }
             },
             "autoload": {
@@ -182,19 +185,53 @@
             ],
             "description": "AddOn for SallyCMS, integrating the CKEditor",
             "homepage": "http://www.sallycms.de/",
-            "time": "2013-07-17 17:54:13"
+            "time": "2015-08-12 13:50:39"
+        },
+        {
+            "name": "phpspec/php-diff",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/php-diff.git",
+                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/30e103d19519fe678ae64a60d77884ef3d71b28a",
+                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Diff": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Boulton",
+                    "homepage": "http://github.com/chrisboulton",
+                    "role": "Original developer"
+                }
+            ],
+            "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
+            "time": "2013-11-01 13:02:21"
         },
         {
             "name": "pimple/pimple",
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Pimple.git",
+                "url": "https://github.com/silexphp/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -219,9 +256,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -234,28 +269,28 @@
         },
         {
             "name": "sallycms/assets",
-            "version": "0.9.x-dev",
+            "version": "v0.10.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/sallycms-assets",
-                "reference": "31124d27daca7d454d4f779cc88137a38ed06811"
+                "reference": "b974a04f80d964d6ef1decdfcd6da72791a7c31e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/sallycms-assets/get/31124d27daca7d454d4f779cc88137a38ed06811.zip",
-                "reference": "31124d27daca7d454d4f779cc88137a38ed06811",
+                "url": "https://bitbucket.org/SallyCMS/sallycms-assets/get/b974a04f80d964d6ef1decdfcd6da72791a7c31e.zip",
+                "reference": "b974a04f80d964d6ef1decdfcd6da72791a7c31e",
                 "shasum": ""
             },
             "require": {
                 "leafo/lessphp": ">=0.3,<0.5",
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/core": "0.9.x-dev"
+                "sallycms/core": "0.10.*"
             },
             "type": "sallycms-app",
             "extra": {
                 "branch-alias": {
-                    "dev-default": "0.10.x-dev"
+                    "dev-default": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -269,7 +304,7 @@
             ],
             "authors": [
                 {
-                    "name": "webvariants GbR",
+                    "name": "webvariants GmbH & Co. KG",
                     "homepage": "http://www.webvariants.de/"
                 }
             ],
@@ -279,32 +314,33 @@
                 "SallyCMS",
                 "assets"
             ],
-            "time": "2014-02-10 21:43:49"
+            "time": "2016-03-23 22:32:27"
         },
         {
             "name": "sallycms/backend",
-            "version": "0.9.x-dev",
+            "version": "v0.10.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/sallycms-backend",
-                "reference": "b59b8bf8f19b463d45af5af1d036faf9a342af8f"
+                "reference": "9e79527ebc856c299eca1987bd59700da254130a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/sallycms-backend/get/b59b8bf8f19b463d45af5af1d036faf9a342af8f.zip",
-                "reference": "b59b8bf8f19b463d45af5af1d036faf9a342af8f",
+                "url": "https://bitbucket.org/SallyCMS/sallycms-backend/get/9e79527ebc856c299eca1987bd59700da254130a.zip",
+                "reference": "9e79527ebc856c299eca1987bd59700da254130a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.1",
+                "phpspec/php-diff": "~1.0",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/core": "0.9.x-dev",
+                "sallycms/core": "0.10.*",
                 "sallycms/less-mixins": ">=2.2.0,<3.0.0"
             },
             "type": "sallycms-app",
             "extra": {
                 "branch-alias": {
-                    "dev-default": "0.10.x-dev"
+                    "dev-default": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -318,11 +354,11 @@
             ],
             "authors": [
                 {
-                    "name": "webvariants GbR",
+                    "name": "webvariants GmbH & Co. KG",
                     "homepage": "http://www.webvariants.de/"
                 }
             ],
-            "description": "The legacy backend for SallyCMS projects.",
+            "description": "The default backend for SallyCMS projects.",
             "homepage": "http://www.sallycms.de/",
             "keywords": [
                 "SallyCMS",
@@ -331,35 +367,35 @@
                 "cms",
                 "ui"
             ],
-            "time": "2014-03-12 15:27:06"
+            "time": "2016-03-23 22:40:59"
         },
         {
             "name": "sallycms/be-search",
-            "version": "dev-default",
+            "version": "v3.0.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/be-search",
-                "reference": "c86352733a88f723afe538fadec9dc91e4318ab0"
+                "reference": "54a4675d21cc73bfdfc4a7ef55c741b31acca915"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/be-search/get/c86352733a88f723afe538fadec9dc91e4318ab0.zip",
-                "reference": "c86352733a88f723afe538fadec9dc91e4318ab0",
+                "url": "https://bitbucket.org/SallyCMS/be-search/get/54a4675d21cc73bfdfc4a7ef55c741b31acca915.zip",
+                "reference": "54a4675d21cc73bfdfc4a7ef55c741b31acca915",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10"
+                "sallycms/sallycms": ">=0.10,<0.11"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "2.x-dev",
+                    "version": "3.0.0",
                     "imex-ignore": true
                 },
                 "branch-alias": {
-                    "dev-default": "2.x-dev"
+                    "dev-default": "3.x-dev"
                 }
             },
             "autoload": {
@@ -379,20 +415,20 @@
             ],
             "description": "AddOn for SallyCMS, providing enhancements for the backend UI in structure and mediapool views",
             "homepage": "http://www.sallycms.de/",
-            "time": "2013-07-12 00:52:17"
+            "time": "2016-03-29 14:40:41"
         },
         {
             "name": "sallycms/composer-installer",
-            "version": "v1.2.0",
+            "version": "v1.2.3",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/composer-installer/",
-                "reference": "c557825c10753ad4278c0ad2c29acf5707eedc05"
+                "reference": "aff8af9d19225f8b8650a8ee22f6fbf6afcf7675"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/composer-installer/get/c557825c10753ad4278c0ad2c29acf5707eedc05.zip",
-                "reference": "c557825c10753ad4278c0ad2c29acf5707eedc05",
+                "url": "https://bitbucket.org/SallyCMS/composer-installer/get/aff8af9d19225f8b8650a8ee22f6fbf6afcf7675.zip",
+                "reference": "aff8af9d19225f8b8650a8ee22f6fbf6afcf7675",
                 "shasum": ""
             },
             "require": {
@@ -414,20 +450,20 @@
             "license": [
                 "MIT"
             ],
-            "time": "2013-09-09 03:24:33"
+            "time": "2015-03-26 07:15:37"
         },
         {
             "name": "sallycms/core",
-            "version": "0.9.x-dev",
+            "version": "v0.10.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/sallycms-core",
-                "reference": "c4d77b774e57404f499afce6dc525b237a9dfb1f"
+                "reference": "596d091bd242e559428b0b9492e804f82df65b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/sallycms-core/get/c4d77b774e57404f499afce6dc525b237a9dfb1f.zip",
-                "reference": "c4d77b774e57404f499afce6dc525b237a9dfb1f",
+                "url": "https://bitbucket.org/SallyCMS/sallycms-core/get/596d091bd242e559428b0b9492e804f82df65b65.zip",
+                "reference": "596d091bd242e559428b0b9492e804f82df65b65",
                 "shasum": ""
             },
             "require": {
@@ -441,12 +477,13 @@
             "require-dev": {
                 "doctrine/dbal": "~2.3.2",
                 "phpunit/dbunit": "1.2.*",
+                "phpunit/php-code-coverage": "1.2.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "sallycms-app",
             "extra": {
                 "branch-alias": {
-                    "dev-default": "0.10.x-dev"
+                    "dev-default": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -463,7 +500,7 @@
             ],
             "authors": [
                 {
-                    "name": "webvariants GbR",
+                    "name": "webvariants GmbH & Co. KG",
                     "homepage": "http://www.webvariants.de/"
                 }
             ],
@@ -476,31 +513,31 @@
                 "mysql",
                 "php"
             ],
-            "time": "2014-03-05 22:58:51"
+            "time": "2016-03-23 23:15:33"
         },
         {
             "name": "sallycms/frontend",
-            "version": "0.9.x-dev",
+            "version": "v0.10.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/sallycms-frontend",
-                "reference": "2653f9970a9f9df072f420fd5a90a454fd995f73"
+                "reference": "80386a9e7376a44f6ac41f7d8c0341d050ac90bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/sallycms-frontend/get/2653f9970a9f9df072f420fd5a90a454fd995f73.zip",
-                "reference": "2653f9970a9f9df072f420fd5a90a454fd995f73",
+                "url": "https://bitbucket.org/SallyCMS/sallycms-frontend/get/80386a9e7376a44f6ac41f7d8c0341d050ac90bc.zip",
+                "reference": "80386a9e7376a44f6ac41f7d8c0341d050ac90bc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.1",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/core": "0.9.x-dev"
+                "sallycms/core": "0.10.*"
             },
             "type": "sallycms-app",
             "extra": {
                 "branch-alias": {
-                    "dev-default": "0.10.x-dev"
+                    "dev-default": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -514,7 +551,7 @@
             ],
             "authors": [
                 {
-                    "name": "webvariants GbR",
+                    "name": "webvariants GmbH & Co. KG",
                     "homepage": "http://www.webvariants.de/"
                 }
             ],
@@ -527,42 +564,43 @@
                 "mysql",
                 "php"
             ],
-            "time": "2014-02-25 23:10:40"
+            "time": "2016-03-23 22:46:17"
         },
         {
             "name": "sallycms/image-resize",
-            "version": "dev-default",
+            "version": "4.1.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/image-resize",
-                "reference": "525d470f55c1b29c2101fef429e1fe7d3ac9667c"
+                "reference": "224caabeec806c03e7f324dcd4e7f95418981e39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/image-resize/get/525d470f55c1b29c2101fef429e1fe7d3ac9667c.zip",
-                "reference": "525d470f55c1b29c2101fef429e1fe7d3ac9667c",
+                "url": "https://bitbucket.org/SallyCMS/image-resize/get/224caabeec806c03e7f324dcd4e7f95418981e39.zip",
+                "reference": "224caabeec806c03e7f324dcd4e7f95418981e39",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
                 "php": ">=5.3.0",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10"
+                "sallycms/sallycms": ">=0.9,<0.11"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "4.x-dev",
+                    "version": "4.1.x-dev",
                     "imex-ignore": true
                 },
                 "branch-alias": {
-                    "dev-default": "4.x-dev"
+                    "dev-default": "4.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
                     "sly\\ImageResize\\": "lib/",
-                    "sly_Controller_": "lib/"
+                    "sly_Controller_": "lib/",
+                    "JPEG_": "vendor/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -576,31 +614,31 @@
             ],
             "description": "AddOn for SallyCMS, providing URL-based resizing and cropping for images",
             "homepage": "http://www.sallycms.de/",
-            "time": "2013-08-13 06:56:15"
+            "time": "2016-03-28 16:13:27"
         },
         {
             "name": "sallycms/import-export",
-            "version": "dev-default",
+            "version": "v4.0.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/import-export",
-                "reference": "e157590663233a0133090c0d8efef57bb5128403"
+                "reference": "cfb9602d88a98f08a9803e59ea0d5228d709f6de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/import-export/get/e157590663233a0133090c0d8efef57bb5128403.zip",
-                "reference": "e157590663233a0133090c0d8efef57bb5128403",
+                "url": "https://bitbucket.org/SallyCMS/import-export/get/cfb9602d88a98f08a9803e59ea0d5228d709f6de.zip",
+                "reference": "cfb9602d88a98f08a9803e59ea0d5228d709f6de",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10"
+                "sallycms/sallycms": ">=0.9,<0.11"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "4.x-dev"
+                    "version": "4.0.0"
                 },
                 "branch-alias": {
                     "dev-default": "4.x-dev"
@@ -609,7 +647,8 @@
             "autoload": {
                 "psr-0": {
                     "sly_Controller_": "lib/",
-                    "sly\\ImportExport\\": "lib/"
+                    "sly\\ImportExport\\": "lib/",
+                    "": "lib/vendor/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -623,7 +662,7 @@
             ],
             "description": "AddOn for SallyCMS, providing file and database backup and restore capabilities",
             "homepage": "http://www.sallycms.de/",
-            "time": "2014-02-13 14:05:16"
+            "time": "2015-10-28 16:16:56"
         },
         {
             "name": "sallycms/less-mixins",
@@ -670,27 +709,27 @@
         },
         {
             "name": "sallycms/setup",
-            "version": "0.9.x-dev",
+            "version": "v0.10.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/SallyCMS/sallycms-setup",
-                "reference": "a20d3e0975f335279536ce7ea1ffced5bbffd479"
+                "reference": "26db6e107945bc69db73e6c35d88b50de06c2fde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/SallyCMS/sallycms-setup/get/a20d3e0975f335279536ce7ea1ffced5bbffd479.zip",
-                "reference": "a20d3e0975f335279536ce7ea1ffced5bbffd479",
+                "url": "https://bitbucket.org/SallyCMS/sallycms-setup/get/26db6e107945bc69db73e6c35d88b50de06c2fde.zip",
+                "reference": "26db6e107945bc69db73e6c35d88b50de06c2fde",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.1",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/core": "0.9.*"
+                "sallycms/core": "0.10.*"
             },
             "type": "sallycms-app",
             "extra": {
                 "branch-alias": {
-                    "dev-default": "0.10.x-dev"
+                    "dev-default": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -704,7 +743,7 @@
             ],
             "authors": [
                 {
-                    "name": "webvariants GbR",
+                    "name": "webvariants GmbH & Co. KG",
                     "homepage": "http://www.webvariants.de/"
                 }
             ],
@@ -719,36 +758,38 @@
                 "setup",
                 "ui"
             ],
-            "time": "2013-12-18 00:40:50"
+            "time": "2016-03-23 22:47:57"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.4.2",
-            "target-dir": "Symfony/Component/Yaml",
+            "version": "v2.8.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3"
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "584e52cb8f788a887553ba82db6caacb1d6260bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
-                "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/584e52cb8f788a887553ba82db6caacb1d6260bb",
+                "reference": "584e52cb8f788a887553ba82db6caacb1d6260bb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\Yaml\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -757,18 +798,16 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:28:54"
+            "homepage": "https://symfony.com",
+            "time": "2016-03-04 07:54:35"
         },
         {
             "name": "webvariants/babelcache",
@@ -833,27 +872,27 @@
         },
         {
             "name": "webvariants/developer-utils",
-            "version": "dev-default",
+            "version": "v6.1.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/webvariants/developer-utils",
-                "reference": "205a4a9ef073ce08ecfbf4f815913d5222479606"
+                "reference": "0ff799fec4928dcf50f2f09eb2612be5c85d8ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/webvariants/developer-utils/get/205a4a9ef073ce08ecfbf4f815913d5222479606.zip",
-                "reference": "205a4a9ef073ce08ecfbf4f815913d5222479606",
+                "url": "https://bitbucket.org/webvariants/developer-utils/get/0ff799fec4928dcf50f2f09eb2612be5c85d8ee4.zip",
+                "reference": "0ff799fec4928dcf50f2f09eb2612be5c85d8ee4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10"
+                "sallycms/sallycms": ">=0.10,<0.11"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "6.x-dev",
+                    "version": "6.1.0",
                     "imex-ignore": true
                 },
                 "branch-alias": {
@@ -878,32 +917,32 @@
             ],
             "description": "AddOn for SallyCMS, providing additional API",
             "homepage": "http://www.sallycms.de/",
-            "time": "2014-02-13 00:59:10"
+            "time": "2016-03-29 15:59:18"
         },
         {
             "name": "webvariants/global-settings",
-            "version": "dev-default",
+            "version": "v6.1.0",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/webvariants/global-settings",
-                "reference": "11a7737885634d123bfb291beededcd46eaaa2d2"
+                "reference": "16a81fc4f9febdb1cc202fc0946f4ea4e62830c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/webvariants/global-settings/get/11a7737885634d123bfb291beededcd46eaaa2d2.zip",
-                "reference": "11a7737885634d123bfb291beededcd46eaaa2d2",
+                "url": "https://bitbucket.org/webvariants/global-settings/get/16a81fc4f9febdb1cc202fc0946f4ea4e62830c9.zip",
+                "reference": "16a81fc4f9febdb1cc202fc0946f4ea4e62830c9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10",
+                "sallycms/sallycms": ">=0.9,<0.11",
                 "webvariants/developer-utils": ">=5.1,<7.0"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "6.x-dev"
+                    "version": "6.1.0"
                 },
                 "branch-alias": {
                     "dev-default": "6.x-dev"
@@ -926,35 +965,35 @@
             ],
             "description": "AddOn for SallyCMS, providing a generic configuration backend",
             "homepage": "http://www.sallycms.de/",
-            "time": "2014-02-26 14:19:17"
+            "time": "2016-03-29 16:09:49"
         },
         {
             "name": "webvariants/metainfo",
-            "version": "dev-default",
+            "version": "v6.1.1",
             "source": {
                 "type": "hg",
                 "url": "https://bitbucket.org/webvariants/meta-infos",
-                "reference": "8e8be8f7697b661999cf0b93bf806ebdc2bf25d6"
+                "reference": "1b8443238d5e834ddcdb466fd0b286e55c8e8bfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/webvariants/meta-infos/get/8e8be8f7697b661999cf0b93bf806ebdc2bf25d6.zip",
-                "reference": "8e8be8f7697b661999cf0b93bf806ebdc2bf25d6",
+                "url": "https://bitbucket.org/webvariants/meta-infos/get/1b8443238d5e834ddcdb466fd0b286e55c8e8bfb.zip",
+                "reference": "1b8443238d5e834ddcdb466fd0b286e55c8e8bfb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10",
-                "webvariants/developer-utils": "~6.0"
+                "sallycms/sallycms": ">=0.9,<0.11",
+                "webvariants/developer-utils": "6.*"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "7.x-dev"
+                    "version": "6.1.1"
                 },
                 "branch-alias": {
-                    "dev-default": "7.x-dev"
+                    "dev-default": "6.x-dev"
                 }
             },
             "autoload": {
@@ -974,36 +1013,174 @@
             ],
             "description": "AddOn for SallyCMS, providing an extensible metadata system for articles, categories, media and users.",
             "homepage": "http://www.sallycms.de/",
-            "time": "2013-08-30 12:46:00"
+            "time": "2016-03-29 16:05:36"
         },
         {
-            "name": "webvariants/realurl2",
-            "version": "dev-default",
+            "name": "webvariants/pac",
+            "version": "v1.0.3",
             "source": {
                 "type": "hg",
-                "url": "https://bitbucket.org/webvariants/realurl2",
-                "reference": "ae74a23eee11241a56d6538262291a8210a2e1fe"
+                "url": "https://bitbucket.org/webvariants/pac",
+                "reference": "ed37873d8b19bdc2bcd69f8e663db2c0edaa269c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/webvariants/realurl2/get/ae74a23eee11241a56d6538262291a8210a2e1fe.zip",
-                "reference": "ae74a23eee11241a56d6538262291a8210a2e1fe",
+                "url": "https://bitbucket.org/webvariants/pac/get/ed37873d8b19bdc2bcd69f8e663db2c0edaa269c.zip",
+                "reference": "ed37873d8b19bdc2bcd69f8e663db2c0edaa269c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "pac_": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Zozmann"
+                }
+            ],
+            "description": "a simple role-based access control implementation",
+            "homepage": "http://www.sallycms.de/",
+            "keywords": [
+                "rbac"
+            ],
+            "time": "2014-03-16 21:54:45"
+        },
+        {
+            "name": "webvariants/rbac",
+            "version": "v0.8.0",
+            "source": {
+                "type": "hg",
+                "url": "https://bitbucket.org/webvariants/rbac",
+                "reference": "aa762eedea50b84e8a64bb691938bf28443e29ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/webvariants/rbac/get/aa762eedea50b84e8a64bb691938bf28443e29ba.zip",
+                "reference": "aa762eedea50b84e8a64bb691938bf28443e29ba",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9,<0.10",
+                "sallycms/sallycms": ">=0.9,<0.11",
+                "webvariants/pac": ">=1.0.2,<2.0"
+            },
+            "type": "sallycms-addon",
+            "extra": {
+                "sallycms": {
+                    "version": "0.8.0"
+                },
+                "branch-alias": {
+                    "dev-default": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "WV24_": "lib/",
+                    "sly_Controller_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Zozmann"
+                }
+            ],
+            "description": "AddOn for SallyCMS, providing a role-based permission management.",
+            "homepage": "http://www.sallycms.de/",
+            "time": "2016-03-29 14:47:46"
+        },
+        {
+            "name": "webvariants/rbac-treeview",
+            "version": "v0.6.0",
+            "source": {
+                "type": "hg",
+                "url": "https://bitbucket.org/webvariants/rbac-treeview",
+                "reference": "59c5330c4b4ba7875af9b3bf4b4c002071d49503"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/webvariants/rbac-treeview/get/59c5330c4b4ba7875af9b3bf4b4c002071d49503.zip",
+                "reference": "59c5330c4b4ba7875af9b3bf4b4c002071d49503",
+                "shasum": ""
+            },
+            "require": {
+                "sallycms/composer-installer": "~1.1",
+                "sallycms/sallycms": ">=0.9,<0.11",
+                "webvariants/rbac": "~0.4"
+            },
+            "type": "sallycms-addon",
+            "extra": {
+                "sallycms": {
+                    "parent": "webvariants/rbac",
+                    "version": "0.6.0"
+                },
+                "branch-alias": {
+                    "dev-default": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "WV42_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "webvariants GbR"
+                }
+            ],
+            "description": "provides a much better UI for managing permissions",
+            "homepage": "http://www.sallycms.de/",
+            "time": "2016-03-29 15:55:54"
+        },
+        {
+            "name": "webvariants/realurl2",
+            "version": "v6.0.4",
+            "source": {
+                "type": "hg",
+                "url": "https://bitbucket.org/webvariants/realurl2",
+                "reference": "932cfda3024086d4b7865b79de061dc755273d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/webvariants/realurl2/get/932cfda3024086d4b7865b79de061dc755273d6d.zip",
+                "reference": "932cfda3024086d4b7865b79de061dc755273d6d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sallycms/sallycms": ">=0.10,<0.11",
                 "webvariants/developer-utils": "~6.0",
                 "webvariants/global-settings": "~6.0"
             },
             "type": "sallycms-addon",
             "extra": {
                 "sallycms": {
-                    "version": "5.x-dev"
+                    "version": "6.x-dev"
                 },
                 "branch-alias": {
-                    "dev-default": "5.x-dev"
+                    "dev-default": "6.x-dev"
                 }
             },
             "autoload": {
@@ -1022,85 +1199,17 @@
             ],
             "description": "AddOn for SallyCMS, providing clean, canonical 'SEO' URLs",
             "homepage": "http://www.sallycms.de/",
-            "time": "2014-02-27 00:15:36"
-        },
-        {
-            "name": "webvariants/redirect",
-            "version": "dev-default",
-            "source": {
-                "type": "hg",
-                "url": "https://bitbucket.org/webvariants/redirect",
-                "reference": "db1eb31f26579166cf425782b8cdcb234378aa11"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/webvariants/redirect/get/db1eb31f26579166cf425782b8cdcb234378aa11.zip",
-                "reference": "db1eb31f26579166cf425782b8cdcb234378aa11",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "sallycms/composer-installer": "~1.1",
-                "sallycms/sallycms": ">=0.9",
-                "webvariants/metainfo": ">=6.0"
-            },
-            "type": "sallycms-addon",
-            "extra": {
-                "sallycms": {
-                    "version": "1.x-dev"
-                },
-                "branch-alias": {
-                    "dev-default": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "sly_Form_Widget_": "lib/",
-                    "WV44_": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Zozmann"
-                }
-            ],
-            "description": "AddOn for SallyCMS, providing article based redirects.",
-            "homepage": "http://www.sallycms.de/",
-            "time": "2013-08-19 12:01:30"
+            "time": "2016-03-16 10:01:35"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sallycms/core": 20,
-        "sallycms/assets": 20,
-        "sallycms/backend": 20,
-        "sallycms/frontend": 20,
-        "sallycms/setup": 20,
-        "knplabs/gaufrette": 20,
-        "sallycms/be-search": 20,
-        "sallycms/import-export": 20,
-        "sallycms/image-resize": 20,
-        "webvariants/developer-utils": 20,
-        "webvariants/metainfo": 20,
-        "webvariants/global-settings": 20,
-        "webvariants/realurl2": 20,
-        "webvariants/redirect": 20,
-        "mediastuttgart/ckeditor": 20
-    },
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
