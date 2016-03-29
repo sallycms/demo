@@ -1,0 +1,73 @@
+{
+    "name": "sallycms/sallycms",
+    "description": "Content Management System for Professionals",
+    "keywords": [
+        "cms",
+        "php",
+        "mysql",
+        "sallycms"
+    ],
+    "authors": [
+        {
+            "name": "webvariants GmbH & Co. KG",
+            "homepage": "http://www.webvariants.de/"
+        }
+    ],
+    "support": {
+        "issues": "https://bitbucket.org/SallyCMS/sallycms/issues",
+        "forum": "https://projects.webvariants.de/projects/sallycms/boards",
+        "wiki": "http://docs.webvariants.de/sallycms/latest/index.html"
+    },
+    "version": "0.9.x-dev",
+    "homepage": "http://www.sallycms.de/",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "": "develop/lib"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "sallycms/composer-installer": "~1.1",
+        "sallycms/core": "0.9.*@dev",
+        "sallycms/assets": "0.9.*@dev",
+        "sallycms/backend": "0.9.*@dev",
+        "sallycms/frontend": "0.9.*@dev",
+        "sallycms/setup": "0.9.*@dev",
+        "knplabs/gaufrette": "0.2.*@dev",
+
+        "mediastuttgart/ckeditor": "~2.4.2",
+        "sallycms/be-search": "~2.0.0",
+        "sallycms/image-resize": "~4.0.0",
+        "sallycms/import-export": "~4.0.0",
+        "webvariants/developer-utils": "~6.0.0",
+        "webvariants/global-settings": "~6.0.0",
+        "webvariants/metainfo": "~6.0.0",
+        "webvariants/realurl2": "~5.0.0",
+        "webvariants/rbac": "~0.7.0",
+        "webvariants/rbac-treeview": "~0.5.0"
+    },
+    "suggest": {
+        "sallycms/be-search": "Provides more fine grained navigation option for the backend.",
+        "sallycms/import-export": "Provides file and database backup and restore capabilities.",
+        "sallycms/image-resize": "Provides URL-based resizing of images.",
+        "webvariants/simpleonlinecontrol": "Provides simple control of publishing."
+    },
+    "config": {
+        "vendor-dir": "sally/vendor",
+        "bin-dir": "sally/vendor/bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-default": "0.10.x-dev"
+        }
+    },
+    "scripts": {
+        "post-package-install": [
+            "sly\\Composer\\Installer::onPostPkgInstall"
+        ],
+        "post-package-update": [
+            "sly\\Composer\\Installer::onPostPkgInstall"
+        ]
+    }
+}
