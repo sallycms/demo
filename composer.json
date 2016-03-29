@@ -18,7 +18,7 @@
         "forum": "https://projects.webvariants.de/projects/sallycms/boards",
         "wiki": "http://docs.webvariants.de/sallycms/latest/index.html"
     },
-    "version": "0.9.x-dev",
+    "version": "0.10.x-dev",
     "homepage": "http://www.sallycms.de/",
     "license": "MIT",
     "autoload": {
@@ -29,22 +29,22 @@
     "require": {
         "php": ">=5.3.3",
         "sallycms/composer-installer": "~1.1",
-        "sallycms/core": "0.9.*@dev",
-        "sallycms/assets": "0.9.*@dev",
-        "sallycms/backend": "0.9.*@dev",
-        "sallycms/frontend": "0.9.*@dev",
-        "sallycms/setup": "0.9.*@dev",
-        "knplabs/gaufrette": "0.2.*@dev",
+        "sallycms/core": "0.10.*@dev",
+        "sallycms/assets": "0.10.*@dev",
+        "sallycms/backend": "0.10.*@dev",
+        "sallycms/frontend": "0.10.*@dev",
+        "sallycms/setup": "0.10.*@dev",
+        "knplabs/gaufrette": "0.2.*",
 
-        "mediastuttgart/ckeditor": "~2.4.2",
-        "sallycms/be-search": "~2.0.0",
-        "sallycms/image-resize": "~4.0.0",
+        "mediastuttgart/ckeditor": "~4.1",
+        "sallycms/be-search": "~3.0.0",
+        "sallycms/image-resize": "~4.1.0",
         "sallycms/import-export": "~4.0.0",
         "webvariants/developer-utils": "~6.0.0",
         "webvariants/global-settings": "~6.0.0",
         "webvariants/metainfo": "~6.0.0",
         "webvariants/realurl2": "~5.0.0",
-        "webvariants/rbac": "~0.7.0",
+        "webvariants/rbac": "~0.8.0",
         "webvariants/rbac-treeview": "~0.5.0"
     },
     "suggest": {
