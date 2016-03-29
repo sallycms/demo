@@ -18,7 +18,7 @@
         "forum": "https://projects.webvariants.de/projects/sallycms/boards",
         "wiki": "http://docs.webvariants.de/sallycms/latest/index.html"
     },
-    "version": "0.10.x-dev",
+    "version": "0.10.0",
     "homepage": "http://www.sallycms.de/",
     "license": "MIT",
     "autoload": {
@@ -29,11 +29,11 @@
     "require": {
         "php": ">=5.3.3",
         "sallycms/composer-installer": "~1.1",
-        "sallycms/core": "0.10.*@dev",
-        "sallycms/assets": "0.10.*@dev",
-        "sallycms/backend": "0.10.*@dev",
-        "sallycms/frontend": "0.10.*@dev",
-        "sallycms/setup": "0.10.*@dev",
+        "sallycms/core": "0.10.*",
+        "sallycms/assets": "0.10.*",
+        "sallycms/backend": "0.10.*",
+        "sallycms/frontend": "0.10.*",
+        "sallycms/setup": "0.10.*",
         "knplabs/gaufrette": "0.2.*",
 
         "mediastuttgart/ckeditor": "~4.1",
@@ -59,7 +59,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-default": "0.10.x-dev"
+            "dev-default": "0.11.x-dev"
         }
     },
     "scripts": {
