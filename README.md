@@ -24,7 +24,7 @@ we will switch to the regular [semantic versioning](http://semver.org/) scheme).
 Bugfix releases occur roughly every month and do not change the API in
 incompatible ways (so it's safe and recommended to update projects frequently).
 
-[![Build Status](https://api.travis-ci.org/sallycms/sallycms-core.png?branch=master)](http://travis-ci.org/sallycms/sallycms-core)
+[![Build Status](https://api.travis-ci.org/sallycms/core.png?branch=master)](http://travis-ci.org/sallycms/core)
 
 Requirements
 ------------
